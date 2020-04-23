@@ -1,10 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import Logo from "./src/components/Logo";
+import LoginScreen from "react-native-login-screen";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>CringeX</Text>
+      <LoginScreen
+        source={require("./assets/cringebackground.png")}
+        logoComponent={<Logo />}
+      />
     </View>
   );
 }
@@ -12,8 +17,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#BE9EFF",
     alignItems: "center",
-    justifyContent: "center",
   },
 });

@@ -1,0 +1,19 @@
+#Client Folder
+
+Client/node_modules/**/*
+Client/.expo/*
+Client/npm-debug.*
+Client/*.jks
+Client/*.p8
+Client/*.p12
+Client/*.key
+Client/*.mobileprovision
+Client/*.orig.*
+Client/web-build/
+Client/web-report/
+
+#Server folder
+Server/node_modules
+
+# macOS
+.DS_Store

@@ -1,24 +1,15 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import Logo from "./src/components/Logo";
+import LoginScreen from "react-native-login-screen";
 
-//This is our Home Component
-
-export default function Home({ history }) {
+export default function App() {
   return (
     <View style={styles.container}>
-      <Text>
-        <h1>Welcome to CringeX</h1>
-        <p>Here You will be able to view and vote on Cringe Content</p>
-        <br />
-        <p>
-          You can register an account with us, or continue as a guest, however,
-          you will not be able to interact with other users without registering
-        </p>
-        <br />
-        <Button title="toAccount" onPress={() => history.push("/account")} />
-        <br />
-        Or login below
-      </Text>
+      <LoginScreen
+        source={require("./assets/cringebackground.png")}
+        logoComponent={<Logo />}
+      />
     </View>
   );
 }
@@ -26,8 +17,7 @@ export default function Home({ history }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#a600ff",
+    backgroundColor: "#BE9EFF",
     alignItems: "center",
-    justifyContent: "center",
   },
 });

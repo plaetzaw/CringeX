@@ -8,9 +8,9 @@ const NavigationStack = createStackNavigator(
     Main: {
       screen: Login,
     },
-    ULTIMATE_CRINGE_1000: {
-      screen: cringe,
-    },
+    // ULTIMATE_CRINGE_1000: {
+    //   screen: cringe,
+    // },
   },
   {
     defaultNavigationOptions: {

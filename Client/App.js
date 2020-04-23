@@ -1,23 +1,30 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import Logo from "./src/components/Logo";
-import LoginScreen from "react-native-login-screen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-export default function App() {
+import HomeScreen from "./src/components/Home";
+import AccountScreen from "./src/components/Account";
+
+// function HomeScreen() {
+//   return (
+//     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+//       <Text>Home Screen</Text>
+//     </View>
+//   );
+// }
+
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <LoginScreen
-        source={require("./assets/cringebackground.png")}
-        logoComponent={<Logo />}
-      />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Account" component={AccountScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#BE9EFF",
-    alignItems: "center",
-  },
-});
+export default App;

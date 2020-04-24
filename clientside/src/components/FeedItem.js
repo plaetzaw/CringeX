@@ -15,6 +15,9 @@ import StarsIcon from "@material-ui/icons/Stars";
 import "./assets/placehold.jpg";
 
 export class FeedItem extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <>
@@ -23,11 +26,11 @@ export class FeedItem extends Component {
             <CardMedia
               component="img"
               src={`./assets/placehold.jpg`}
-              title="Contemplative Reptile"
+              title="CringeX Logo"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-                Title
+                <b>@User Handle</b>
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 CringeX Text, Picture or Video goes here

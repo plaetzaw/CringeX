@@ -33,7 +33,7 @@ export class FeedItem extends Component {
                 <b>@User Handle</b>
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                CringeX Text, Picture or Video goes here
+                CringeX Text, Picture or Video
               </Typography>
             </CardContent>
           </CardActionArea>

@@ -7,7 +7,9 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 
-const useStyles = makeStyles((theme) => ({
+//import "./Header.css";
+
+/*const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -17,29 +19,23 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  theToolbar: {
+    display: "flex",
+    width: "100%",
+  },
 }));
+*/
 
 export default function ButtonAppBar() {
-  const classes = useStyles();
+  //const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <AppBar className="navbar">
+      <Toolbar className="nav-buttons">
+        <Button>Home</Button>
+        <Button>Login</Button>
+        <Button>News</Button>
+      </Toolbar>
+    </AppBar>
   );
 }

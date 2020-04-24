@@ -2,13 +2,17 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import HomeIcon from "@material-ui/icons/Home";
-import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
-import DeviceHubIcon from "@material-ui/icons/DeviceHub";
+import FolderIcon from "@material-ui/icons/Folder";
+import RestoreIcon from "@material-ui/icons/Restore";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+import "../../index.css";
 
 const useStyles = makeStyles({
   root: {
-    width: 500,
+    //   width: "100%",
+    backgroundColor: "#3f51b5",
+    //   justifyContent: "center",
   },
 });
 
@@ -25,22 +29,21 @@ export default function LabelBottomNavigation() {
       value={value}
       onChange={handleChange}
       className={classes.root}
-      style={{ width: "auto", height: "auto" }}
     >
       <BottomNavigationAction
         label="Favorites"
         value="favorites"
-        icon={<HomeIcon />}
+        icon={<FavoriteIcon />}
       />
       <BottomNavigationAction
         label="Nearby"
         value="nearby"
-        icon={<DeviceHubIcon />}
+        icon={<LocationOnIcon />}
       />
       <BottomNavigationAction
         label="Folder"
         value="folder"
-        icon={<SportsEsportsIcon />}
+        icon={<FolderIcon />}
       />
     </BottomNavigation>
   );

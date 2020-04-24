@@ -4,9 +4,9 @@ import FeedItem from "../FeedItem";
 export class Feed extends Component {
   render() {
     return (
-      <div>
+      <>
         <FeedItem />
-      </div>
+      </>
     );
   }
 }

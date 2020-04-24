@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#container {
+  margin-top: 56px;
+  width: 100%;
+}
+
+.main-app {
+  width: 100%;
+}
+
+.nav-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

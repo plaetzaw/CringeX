@@ -2,6 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import Feed from "./components/pages/Feed";
 // import * as serviceWorker from './serviceWorker';
 
 // ===Redux===
@@ -22,6 +23,8 @@ ReactDOM.render(
     <BaseLayout>
       <Switch>
         <Route exact path="/" component={App} />
+        <Route exact path="/feed" component={Feed} />
+        <Route exact path="/profile" component={App} />
       </Switch>
     </BaseLayout>
   </BrowserRouter>,

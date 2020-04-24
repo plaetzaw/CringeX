@@ -1,7 +1,7 @@
 import React from "react";
 
 function App() {
-  return <>Hello World</>;
+  return <>Welcome to CringeX</>;
 }
 
 export default App;

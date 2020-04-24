@@ -7,6 +7,8 @@ import RestoreIcon from "@material-ui/icons/Restore";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import "../../index.css";
+import HomeIcon from "@material-ui/icons/Home";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 const useStyles = makeStyles({
   root: {
@@ -30,6 +32,7 @@ export default function LabelBottomNavigation() {
       onChange={handleChange}
       className={classes.root}
     >
+      <BottomNavigationAction label="Home" value="home" icon={<HomeIcon />} />
       <BottomNavigationAction
         label="Favorites"
         value="favorites"
@@ -41,9 +44,9 @@ export default function LabelBottomNavigation() {
         icon={<LocationOnIcon />}
       />
       <BottomNavigationAction
-        label="Folder"
-        value="folder"
-        icon={<FolderIcon />}
+        label="Profile"
+        value="profile"
+        icon={<AccountCircleIcon />}
       />
     </BottomNavigation>
   );

@@ -2,6 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import Feed from "./components/pages/Feed";
 // import * as serviceWorker from './serviceWorker';
 
 // ===CSS===
@@ -30,6 +31,8 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={App} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/feed" component={Feed} />
+        <Route exact path="/profile" component={App} />
       </Switch>
       <Footer />
     </div>

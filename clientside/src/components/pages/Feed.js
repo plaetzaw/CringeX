@@ -1,1 +1,14 @@
-placeholder;
+import React, { Component } from "react";
+import FeedItem from "../FeedItem";
+
+export class Feed extends Component {
+  render() {
+    return (
+      <>
+        <FeedItem />
+      </>
+    );
+  }
+}
+
+export default Feed;

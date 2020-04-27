@@ -6,6 +6,8 @@ export class Feed extends Component {
     return (
       <>
         <FeedItem />
+        <FeedItem />
+        <FeedItem />
       </>
     );
   }

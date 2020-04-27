@@ -32,6 +32,14 @@ export default function LabelBottomNavigation() {
       value={value}
       onChange={handleChange}
       className={classes.root}
+      style={{
+        position: "fixed",
+        bottom: "0",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+      }}
     >
       <BottomNavigationAction
         label="Home"

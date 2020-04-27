@@ -22,3 +22,7 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.tabs {
+  color: #fff !important;
+}

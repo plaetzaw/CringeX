@@ -5,7 +5,9 @@ export class Feed extends Component {
   render() {
     return (
       <>
-        <FeedItem />
+        <FeedItem style={{ margin: "5rem" }} />
+        <FeedItem style={{ margin: "5rem" }} />
+        <FeedItem style={{ margin: "5rem" }} />
       </>
     );
   }

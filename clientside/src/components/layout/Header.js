@@ -26,15 +26,22 @@ import MenuIcon from "@material-ui/icons/Menu";
 }));
 */
 
+const useStyles = makeStyles({
+  root: {
+    //   width: "100%",
+    backgroundColor: "#BE9EFF",
+    //   justifyContent: "center",
+  },
+});
+
 export default function ButtonAppBar() {
-  //const classes = useStyles();
+  const classes = useStyles();
 
   return (
-    <AppBar className="navbar">
+    <AppBar className={classes.root}>
       <Toolbar className="nav-buttons">
-        <Button>Home</Button>
         <Button>Login</Button>
-        <Button>News</Button>
+        <Button>Sign Up</Button>
       </Toolbar>
     </AppBar>
   );

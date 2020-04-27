@@ -33,21 +33,25 @@ export default function LabelBottomNavigation() {
       onChange={handleChange}
       className={classes.root}
     >
-      <BottomNavigationAction label="Home" value="home" icon={<HomeIcon />} />
+      <BottomNavigationAction
+        label="Home"
+        value="home"
+        icon={<HomeIcon style={{ color: "#fff" }} />}
+      />
       <BottomNavigationAction
         label="Favorites"
         value="favorites"
-        icon={<PublicIcon />}
+        icon={<PublicIcon style={{ color: "#fff" }} />}
       />
       <BottomNavigationAction
         label="Nearby"
         value="nearby"
-        icon={<NotificationsIcon />}
+        icon={<NotificationsIcon style={{ color: "#fff" }} />}
       />
       <BottomNavigationAction
         label="Profile"
         value="profile"
-        icon={<AccountCircleIcon />}
+        icon={<AccountCircleIcon style={{ color: "#fff" }} />}
       />
     </BottomNavigation>
   );

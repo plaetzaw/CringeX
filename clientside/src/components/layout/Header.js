@@ -40,8 +40,12 @@ export default function ButtonAppBar() {
   return (
     <AppBar className={classes.root}>
       <Toolbar className="nav-buttons">
-        <Button>Login</Button>
-        <Button>Sign Up</Button>
+        <Button className="tabs">
+          <strong>Login</strong>
+        </Button>
+        <Button className="tabs">
+          <strong>Sign Up</strong>
+        </Button>
       </Toolbar>
     </AppBar>
   );

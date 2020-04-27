@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   videos.associate = function(models) {
     // associations can be defined here
-    videos.belongsTo(models.user)
-    videos.hasMany(models.comments)
+    models.videos.hasMany(models.comments);
+    models.videos.belongsTo(models.user);
   };
   return videos;
 };

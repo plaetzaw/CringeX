@@ -5,6 +5,7 @@
 
 body {
   margin: 0;
+  background-color: #be9eff;
 }
 
 #container {
@@ -20,4 +21,8 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.tabs {
+  color: #fff !important;
 }

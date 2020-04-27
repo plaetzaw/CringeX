@@ -5,15 +5,16 @@ import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import FolderIcon from "@material-ui/icons/Folder";
 import RestoreIcon from "@material-ui/icons/Restore";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
+import PublicIcon from "@material-ui/icons/Public";
 import "../../index.css";
 import HomeIcon from "@material-ui/icons/Home";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 
 const useStyles = makeStyles({
   root: {
     //   width: "100%",
-    backgroundColor: "#3f51b5",
+    backgroundColor: "#BE9EFF",
     //   justifyContent: "center",
   },
 });
@@ -32,21 +33,25 @@ export default function LabelBottomNavigation() {
       onChange={handleChange}
       className={classes.root}
     >
-      <BottomNavigationAction label="Home" value="home" icon={<HomeIcon />} />
+      <BottomNavigationAction
+        label="Home"
+        value="home"
+        icon={<HomeIcon style={{ color: "#fff" }} />}
+      />
       <BottomNavigationAction
         label="Favorites"
         value="favorites"
-        icon={<FavoriteIcon />}
+        icon={<PublicIcon style={{ color: "#fff" }} />}
       />
       <BottomNavigationAction
         label="Nearby"
         value="nearby"
-        icon={<LocationOnIcon />}
+        icon={<NotificationsIcon style={{ color: "#fff" }} />}
       />
       <BottomNavigationAction
         label="Profile"
         value="profile"
-        icon={<AccountCircleIcon />}
+        icon={<AccountCircleIcon style={{ color: "#fff" }} />}
       />
     </BottomNavigation>
   );

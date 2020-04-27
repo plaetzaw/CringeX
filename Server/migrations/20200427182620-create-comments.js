@@ -20,6 +20,10 @@ module.exports = {
       },
       videoId: {
         type: Sequelize.INTEGER,
+        references: {
+          model: 'videos',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

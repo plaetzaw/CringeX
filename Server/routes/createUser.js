@@ -7,12 +7,12 @@ let db = require("../models")
 
 router.use(bodyParser.urlencoded({ extended: false }));
 
-router.post("/createUser", (req, res)=>{
+router.post("/register", (req, res)=>{
     let email = req.body.email;
     let handle = req.body.handle;
     let password = req.body.password
 
-    db.users.findOne({
+    db.user.findOne({
         where: {
             email: email
         }
@@ -22,7 +22,7 @@ router.post("/createUser", (req, res)=>{
             console.log("email already exists")
         }
         else{
-            db.users.findOne({
+            db.user.findOne({
                 where: {
                     handle: handle
                 }
@@ -33,7 +33,7 @@ router.post("/createUser", (req, res)=>{
                 } else {
                     bcrypt.hash(password, SALT)
                     .then(hash=>{
-                        let user = db.users.build({
+                        let user = db.user.build({
                             email: email,
                             handle: handle,
                             password: hash
@@ -44,4 +44,8 @@ router.post("/createUser", (req, res)=>{
             })
         }
     })
+})
+
+router.get('/register', (req, res)=>{
+    res.render("register.ejs")
 })

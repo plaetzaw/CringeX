@@ -21,6 +21,7 @@ import Footer from "./components/layout/Footer";
 
 // ===Pages===
 import Login from "./components/pages/Login";
+import Profile from "./components/pages/ProfileView";
 
 // ===Material UI===
 
@@ -32,7 +33,7 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/feed" component={Feed} />
-        <Route exact path="/profile" component={App} />
+        <Route exact path="/profile" component={Profile} />
       </Switch>
       <Footer />
     </div>

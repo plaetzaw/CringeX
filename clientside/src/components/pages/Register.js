@@ -18,16 +18,16 @@ class Register extends Component {
       >
         <img
           height="300px"
-          style={{ marginTop: "-70px" }}
+          style={{ marginTop: "-150px" }}
           src={require("../../images/NameLogo.png")}
         />
         <div
           style={{
             border: "#BE9EFF 2px solid",
-            padding: "2rem",
+            padding: ".5rem",
             backgroundColor: "rgba(190, 158, 255, 0.2)",
             borderRadius: "1rem",
-            marginTop: "-70px",
+            marginTop: "-75px",
           }}
         >
           <div

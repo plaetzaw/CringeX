@@ -46,6 +46,4 @@ router.post("/register", (req, res)=>{
     })
 })
 
-router.get('/register', (req, res)=>{
-    res.render("register.ejs")
-})
+module.exports = router

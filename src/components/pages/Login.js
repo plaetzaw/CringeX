@@ -30,6 +30,7 @@ class Login extends Component {
             marginTop: "-75px",
           }}
         >
+        <form action="/login" method="POST">
           <div
             style={{
               display: "flex",
@@ -39,12 +40,34 @@ class Login extends Component {
             }}
           >
             <div>
-              Email: <input className="input"></input>
+              Email: <input className="input" name="email"></input>
             </div>
             <div>
-              Password: <input className="input"></input>
+              Password: <input className="input" name="password"></input>
             </div>
           </div>
+          <div
+          style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+          }}
+          >
+          <Button
+          style={{
+            fontSize: "1rem",
+            margin: ".3rem",
+            color: "#fff",
+            backgroundColor: "rgba(190, 158, 255, 0.2)",
+            padding: ".5rem",
+            paddingBottom: ".25rem"
+          }}
+          type="submit"
+        >
+          Login
+        </Button>
+        </div>
+        </form>
           <hr style={{ marginTop: "10px", borderColor: "#BE9EFF" }} />
           <div
             style={{
@@ -68,18 +91,7 @@ class Login extends Component {
             </Button>
           </div>
         </div>
-        <Button
-          style={{
-            fontSize: "1rem",
-            margin: ".3rem",
-            color: "#fff",
-            backgroundColor: "rgba(190, 158, 255, 0.2)",
-            padding: ".5rem",
-            paddingBottom: ".25rem",
-          }}
-        >
-          Login
-        </Button>
+
         <Button
           style={{ textTransform: "none", fontSize: ".65rem", color: "#fff" }}
         >

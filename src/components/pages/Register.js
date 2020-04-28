@@ -54,18 +54,26 @@ class Register extends Component {
             <div>
               Verify Password: <input className="input"></input>
             </div>
-            <Button
+          </div>
+          <div
           style={{
-            fontSize: "1rem",
-            margin: ".5rem",
-            color: "#fff",
-            backgroundColor: "rgba(190, 158, 255, 0.2)",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
           }}
-          type="submit"
-          // onClick={(e)=>{e.preventDefault()}}
-        >
-          Sign Up
-        </Button>
+          >
+            <Button
+            style={{
+              fontSize: "1rem",
+              margin: ".5rem",
+              color: "#fff",
+              backgroundColor: "rgba(190, 158, 255, 0.2)",
+            }}
+            type="submit"
+            // onClick={(e)=>{e.preventDefault()}}
+          >
+            Sign Up
+          </Button>
           </div>
           </form>
 

@@ -16,7 +16,7 @@ import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(1),
   },
   heroContent: {
     // backgroundColor: theme.palette.background.paper,
@@ -34,15 +34,16 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(10),
   },
   card: {
-    height: "100%",
+    height: "15rem",
     display: "flex",
     flexDirection: "column",
   },
   cardMedia: {
     paddingTop: "56.25%", // 16:9
+    height: "100%",
   },
   cardContent: {
-    flexShrink: 1,
+    flexShrink: 0,
   },
   handle: {
     height: 20,
@@ -133,7 +134,7 @@ export default function Album() {
           {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map((card) => (
-              <Grid item key={card} xs={4} sm={4} md={4}>
+              <Grid item key={card} xs={6} sm={4} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}

@@ -7,6 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import InsertCommentIcon from "@material-ui/icons/InsertComment";
 
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
@@ -56,7 +57,6 @@ export class FeedItem extends Component {
                 }}
               >
                 <ThumbUpIcon />
-                <p>Cringe</p>
               </div>
               <div
                 style={{
@@ -66,7 +66,15 @@ export class FeedItem extends Component {
                 }}
               >
                 <ThumbDownIcon />
-                <p>Not Cringe</p>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <InsertCommentIcon />
               </div>
             </CardActions>
           </Card>

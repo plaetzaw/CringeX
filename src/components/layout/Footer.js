@@ -8,7 +8,7 @@ import PublicIcon from "@material-ui/icons/Public";
 import HomeIcon from "@material-ui/icons/Home";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import NotificationsIcon from "@material-ui/icons/Notifications";
-import PublishIcon from "@material-ui/icons/Publish";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
 
 import "../../index.css";
 
@@ -50,16 +50,11 @@ export default function LabelBottomNavigation() {
         icon={<HomeIcon style={{ color: "#fff" }} />}
       />
       <BottomNavigationAction
-        label="Favorites"
-        value="favorites"
-        icon={<PublicIcon style={{ color: "#fff" }} />}
-      />
-      <BottomNavigationAction
         component={Link}
         to="/upload"
         label="Upload"
         value="upload"
-        icon={<PublishIcon style={{ color: "#fff" }} />}
+        icon={<AddCircleIcon style={{ color: "#fff" }} />}
       />
       <BottomNavigationAction
         label="Nearby"

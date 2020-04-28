@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -40,14 +41,14 @@ export default function ButtonAppBar() {
   return (
     <AppBar className={classes.root}>
       <Toolbar className="nav-buttons">
-        <Button className="tabs">
+        <Button className="tabs" component={Link} to="/login">
           <strong>Login</strong>
         </Button>
         <img
           style={{ height: "1.5rem" }}
           src={require("../../images/IconLogo.png")}
         />
-        <Button className="tabs">
+        <Button className="tabs" component={Link} to="/register">
           <strong>Sign Up</strong>
         </Button>
       </Toolbar>

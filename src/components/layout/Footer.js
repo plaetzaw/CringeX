@@ -1,12 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import PublicIcon from "@material-ui/icons/Public";
-import "../../index.css";
 import HomeIcon from "@material-ui/icons/Home";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import PublishIcon from "@material-ui/icons/Publish";
+
+import "../../index.css";
 
 const useStyles = makeStyles({
   root: {
@@ -39,6 +43,8 @@ export default function LabelBottomNavigation() {
       }}
     >
       <BottomNavigationAction
+        component={Link}
+        to="/feed"
         label="Home"
         value="home"
         icon={<HomeIcon style={{ color: "#fff" }} />}
@@ -49,11 +55,20 @@ export default function LabelBottomNavigation() {
         icon={<PublicIcon style={{ color: "#fff" }} />}
       />
       <BottomNavigationAction
+        component={Link}
+        to="/upload"
+        label="Upload"
+        value="upload"
+        icon={<PublishIcon style={{ color: "#fff" }} />}
+      />
+      <BottomNavigationAction
         label="Nearby"
         value="nearby"
         icon={<NotificationsIcon style={{ color: "#fff" }} />}
       />
       <BottomNavigationAction
+        component={Link}
+        to="/profile"
         label="Profile"
         value="profile"
         icon={<AccountCircleIcon style={{ color: "#fff" }} />}

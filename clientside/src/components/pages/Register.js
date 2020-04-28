@@ -17,14 +17,14 @@ class Register extends Component {
         }}
       >
         <img
-          height="300px"
-          style={{ marginTop: "-150px" }}
+          height="250px"
+          style={{ marginTop: "-150px", marginBottom: "1rem" }}
           src={require("../../images/NameLogo.png")}
         />
         <div
           style={{
             border: "#BE9EFF 2px solid",
-            padding: ".5rem",
+            padding: ".3rem",
             backgroundColor: "rgba(190, 158, 255, 0.2)",
             borderRadius: "1rem",
             marginTop: "-75px",
@@ -77,9 +77,11 @@ class Register extends Component {
         <Button
           style={{
             fontSize: "1rem",
-            margin: ".5rem",
+            margin: ".3rem",
             color: "#fff",
             backgroundColor: "rgba(190, 158, 255, 0.2)",
+            padding: ".5rem",
+            paddingBottom: ".25rem",
           }}
         >
           Sign Up

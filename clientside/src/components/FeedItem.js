@@ -7,6 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import InsertCommentIcon from "@material-ui/icons/InsertComment";
 
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
@@ -19,51 +20,65 @@ export class FeedItem extends Component {
   render() {
     return (
       <>
-        <Card>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              src={require("./assets/placehold.jpg")}
-              title="CringeX Content"
-            />
-            <CardContent
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <Typography gutterBottom variant="h5" component="h2">
-                <b>@UserName</b>
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                CringeX Text, Picture or Video
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions style={{ display: "flex", justifyContent: "center" }}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <ThumbUpIcon />
-              <p>Cringe</p>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <ThumbDownIcon />
-              <p>Not Cringe</p>
-            </div>
-          </CardActions>
-        </Card>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Card
+            style={{
+              height: "45rem",
+              width: "30rem",
+            }}
+          >
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                src={require("./assets/placehold.jpg")}
+                title="CringeX Content"
+              />
+              <CardContent
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <Typography gutterBottom variant="h5" component="h2">
+                  <b>@UserName</b>
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  CringeX Text, Picture or Video
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <ThumbUpIcon />
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <ThumbDownIcon />
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <InsertCommentIcon />
+              </div>
+            </CardActions>
+          </Card>
+        </div>
       </>
     );
   }

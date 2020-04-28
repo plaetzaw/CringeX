@@ -23,6 +23,7 @@ import Footer from "./components/layout/Footer";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import Profile from "./components/pages/ProfileView";
+import Upload from "./components/pages/UploadPage";
 
 // ===Material UI===
 
@@ -36,6 +37,7 @@ ReactDOM.render(
         <Route exact path="/register" component={Register} />
         <Route exact path="/feed" component={Feed} />
         <Route exact path="/profile" component={Profile} />
+        <Route exact path="/upload" component={Upload} />
       </Switch>
       <Footer />
     </div>

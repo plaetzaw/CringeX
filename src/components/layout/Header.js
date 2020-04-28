@@ -43,6 +43,10 @@ export default function ButtonAppBar() {
         <Button className="tabs">
           <strong>Login</strong>
         </Button>
+        <img
+          style={{ height: "1.5rem" }}
+          src={require("../../images/IconLogo.png")}
+        />
         <Button className="tabs">
           <strong>Sign Up</strong>
         </Button>

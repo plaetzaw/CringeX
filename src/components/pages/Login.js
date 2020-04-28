@@ -3,7 +3,7 @@ import "../../utility/loginstyle.css";
 import { requirePropFactory } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
-class Register extends Component {
+class Login extends Component {
   render() {
     return (
       <div
@@ -17,14 +17,14 @@ class Register extends Component {
         }}
       >
         <img
-          height="300px"
-          style={{ marginTop: "-150px" }}
+          height="250px"
+          style={{ marginTop: "-150px", marginBottom: "1rem" }}
           src={require("../../images/NameLogo.png")}
         />
         <div
           style={{
             border: "#BE9EFF 2px solid",
-            padding: ".5rem",
+            padding: ".3rem",
             backgroundColor: "rgba(190, 158, 255, 0.2)",
             borderRadius: "1rem",
             marginTop: "-75px",
@@ -39,16 +39,10 @@ class Register extends Component {
             }}
           >
             <div>
-              Username: <input className="input"></input>
-            </div>
-            <div>
               Email: <input className="input"></input>
             </div>
             <div>
               Password: <input className="input"></input>
-            </div>
-            <div>
-              Verify Password: <input className="input"></input>
             </div>
           </div>
           <hr style={{ marginTop: "10px", borderColor: "#BE9EFF" }} />
@@ -62,7 +56,7 @@ class Register extends Component {
               fontSize: ".75rem",
             }}
           >
-            Already have an account?{" "}
+            Not signed up yet?{" "}
             <Button
               style={{
                 color: "#fff",
@@ -77,12 +71,14 @@ class Register extends Component {
         <Button
           style={{
             fontSize: "1rem",
-            margin: ".5rem",
+            margin: ".3rem",
             color: "#fff",
             backgroundColor: "rgba(190, 158, 255, 0.2)",
+            padding: ".5rem",
+            paddingBottom: ".25rem",
           }}
         >
-          Sign Up
+          Login
         </Button>
         <Button
           style={{ textTransform: "none", fontSize: ".65rem", color: "#fff" }}
@@ -94,4 +90,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default Login;

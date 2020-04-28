@@ -21,6 +21,7 @@ class Login extends Component {
           style={{ marginTop: "-150px", marginBottom: "1rem" }}
           src={require("../../images/NameLogo.png")}
         />
+        <form action="/login" method="POST">
         <div
           style={{
             border: "#BE9EFF 2px solid",
@@ -30,6 +31,7 @@ class Login extends Component {
             marginTop: "-75px",
           }}
         >
+        
           <div
             style={{
               display: "flex",
@@ -39,12 +41,13 @@ class Login extends Component {
             }}
           >
             <div>
-              Email: <input className="input"></input>
+              Email: <input className="input" name="email"></input>
             </div>
             <div>
-              Password: <input className="input"></input>
+              Password: <input className="input" name="password"></input>
             </div>
           </div>
+
           <hr style={{ marginTop: "10px", borderColor: "#BE9EFF" }} />
           <div
             style={{
@@ -68,18 +71,29 @@ class Login extends Component {
             </Button>
           </div>
         </div>
-        <Button
+        <div
+          style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+          }}
+          >
+          <Button
           style={{
             fontSize: "1rem",
             margin: ".3rem",
             color: "#fff",
             backgroundColor: "rgba(190, 158, 255, 0.2)",
             padding: ".5rem",
-            paddingBottom: ".25rem",
+            paddingBottom: ".25rem"
           }}
+          type="submit"
         >
           Login
         </Button>
+        </div>
+        </form>
+
         <Button
           style={{ textTransform: "none", fontSize: ".65rem", color: "#fff" }}
         >

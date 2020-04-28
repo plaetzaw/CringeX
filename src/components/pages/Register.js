@@ -4,6 +4,8 @@ import { requirePropFactory } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
 class Register extends Component {
+
+
   render() {
     return (
       <div
@@ -17,19 +19,21 @@ class Register extends Component {
         }}
       >
         <img
-          height="250px"
-          style={{ marginTop: "-150px", marginBottom: "1rem" }}
+          height="300px"
+          style={{ marginTop: "-150px" }}
           src={require("../../images/NameLogo.png")}
         />
+        <form action="/register" method="POST">
         <div
           style={{
             border: "#BE9EFF 2px solid",
-            padding: ".3rem",
+            padding: ".5rem",
             backgroundColor: "rgba(190, 158, 255, 0.2)",
             borderRadius: "1rem",
             marginTop: "-75px",
           }}
         >
+          
           <div
             style={{
               display: "flex",
@@ -38,19 +42,21 @@ class Register extends Component {
               color: "#fff",
             }}
           >
+            
             <div>
-              Username: <input className="input"></input>
+              Username: <input className="input" name="handle"></input>
             </div>
             <div>
-              Email: <input className="input"></input>
+              Email: <input className="input" name="email"></input>
             </div>
             <div>
-              Password: <input className="input"></input>
+              Password: <input className="input" name="password"></input>
             </div>
             <div>
               Verify Password: <input className="input"></input>
             </div>
           </div>
+
           <hr style={{ marginTop: "10px", borderColor: "#BE9EFF" }} />
           <div
             style={{
@@ -74,18 +80,29 @@ class Register extends Component {
             </Button>
           </div>
         </div>
-        <Button
+
+        <div
           style={{
-            fontSize: "1rem",
-            margin: ".3rem",
-            color: "#fff",
-            backgroundColor: "rgba(190, 158, 255, 0.2)",
-            padding: ".5rem",
-            paddingBottom: ".25rem",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
           }}
-        >
-          Sign Up
-        </Button>
+          >
+            <Button
+            style={{
+              fontSize: "1rem",
+              margin: ".5rem",
+              color: "#fff",
+              backgroundColor: "rgba(190, 158, 255, 0.2)",
+            }}
+            type="submit"
+            // onClick={(e)=>{e.preventDefault()}}
+          >
+            Sign Up
+          </Button>
+          </div>
+          </form>
+
         <Button
           style={{ textTransform: "none", fontSize: ".65rem", color: "#fff" }}
         >

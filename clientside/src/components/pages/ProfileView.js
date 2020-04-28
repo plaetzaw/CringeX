@@ -85,9 +85,6 @@ export default function Album() {
         {/* Hero unit */}
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
-            <Typography component="h1" variant="h3" align="center" color="textPrimary" gutterBottom>
-              Daniela Arroyo
-            </Typography>
             <Card className={classes.card}>
               <CardMedia
                 className={classes.cardMedia}

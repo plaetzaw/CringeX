@@ -12,8 +12,6 @@ import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
 import StarsIcon from "@material-ui/icons/Stars";
 
-import "./assets/placehold.jpg";
-
 export class FeedItem extends Component {
   constructor(props) {
     super(props);
@@ -25,25 +23,45 @@ export class FeedItem extends Component {
           <CardActionArea>
             <CardMedia
               component="img"
-              src={`./assets/placehold.jpg`}
-              title="CringeX Logo"
+              src={require("./assets/placehold.jpg")}
+              title="CringeX Content"
             />
-            <CardContent>
+            <CardContent
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
               <Typography gutterBottom variant="h5" component="h2">
-                <b>@User Handle</b>
+                <b>@UserName</b>
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
                 CringeX Text, Picture or Video
               </Typography>
             </CardContent>
           </CardActionArea>
-          <CardActions>
-            Vote Up
-            <ThumbUpIcon />
-            Vote Down
-            <ThumbDownIcon />
-            Add to Favorites
-            <StarsIcon />
+          <CardActions style={{ display: "flex", justifyContent: "center" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <ThumbUpIcon />
+              <p>Cringe</p>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <ThumbDownIcon />
+              <p>Not Cringe</p>
+            </div>
           </CardActions>
         </Card>
       </>

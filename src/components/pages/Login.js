@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../../utility/loginstyle.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import { requirePropFactory } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
@@ -110,4 +111,11 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    headerUIToggle: false,
+    footerUIToggle: false,
+  };
+};
+
+export default connect(mapStateToProps)(Login);

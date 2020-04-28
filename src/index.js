@@ -9,7 +9,9 @@ import Feed from "./components/pages/Feed";
 import "./index.css";
 
 // ===Redux===
-// import { Provider } from "react-redux";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import Reducer from "./redux/reducers/reducers";
 
 // ===Routing===
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -27,21 +29,26 @@ import Upload from "./components/pages/UploadPage";
 
 // ===Material UI===
 
+// ===Store===
+const store = createStore(Reducer);
+
 ReactDOM.render(
-  <BrowserRouter>
-    <div id="container">
-      <Header />
-      <Switch>
-        <Route exact path="/" component={App} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/feed" component={Feed} />
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/upload" component={Upload} />
-      </Switch>
-      <Footer />
-    </div>
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <div id="container">
+        <Header />
+        <Switch>
+          <Route exact path="/" component={App} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/feed" component={Feed} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/upload" component={Upload} />
+        </Switch>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 

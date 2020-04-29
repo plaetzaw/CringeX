@@ -113,6 +113,7 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    loggedIn: state.loggedIn,
     headerDisplay: state.headerDisplay,
     footerDisplay: state.footerDisplay,
   };

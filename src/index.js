@@ -11,7 +11,7 @@ import "./index.css";
 // ===Redux===
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import Reducer from "./redux/reducers/reducers";
+import Reducer from "./redux/reducers/userReducers";
 
 // ===Routing===
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -31,7 +31,7 @@ import Upload from "./components/pages/UploadPage";
 // ===Material UI===
 
 // ===Store===
-const store = createStore(Reducer);
+import store from "./redux/store";
 
 ReactDOM.render(
   <Provider store={store}>

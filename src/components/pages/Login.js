@@ -99,13 +99,13 @@ class Login extends Component {
           </div>
         </form>
 
-        <Button
+        {/* <Button
           component={Link}
           to="/feed"
           style={{ textTransform: "none", fontSize: ".65rem", color: "#fff" }}
         >
           Continue as guest
-        </Button>
+        </Button> */}
       </div>
     );
   }
@@ -113,9 +113,15 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    headerUIToggle: false,
-    footerUIToggle: false,
+    headerDisplay: state.headerDisplay,
+    footerDisplay: state.footerDisplay,
   };
 };
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     default => dispatch({ type: "LOGIN_TOGGLE"})
+//   };
+// };
 
 export default connect(mapStateToProps)(Login);

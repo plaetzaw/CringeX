@@ -46,7 +46,12 @@ class Login extends Component {
                 Email: <input className="input" name="email"></input>
               </div>
               <div>
-                Password: <input className="input" name="password"></input>
+                Password:{" "}
+                <input
+                  className="input"
+                  name="password"
+                  type="password"
+                ></input>
               </div>
             </div>
 

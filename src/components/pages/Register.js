@@ -47,10 +47,20 @@ class Register extends Component {
                 Email: <input className="input" name="email"></input>
               </div>
               <div>
-                Password: <input className="input" name="password"></input>
+                Password:{" "}
+                <input
+                  className="input"
+                  name="password"
+                  type="password"
+                ></input>
               </div>
               <div>
-                Verify Password: <input className="input"></input>
+                Verify Password:{" "}
+                <input
+                  className="input"
+                  name="password2"
+                  type="password"
+                ></input>
               </div>
             </div>
 

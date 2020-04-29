@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { requirePropFactory } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
+//import PropTypes
 
 class Login extends Component {
   render() {
@@ -110,6 +111,15 @@ class Login extends Component {
     );
   }
 }
+
+// specify PropTypes here
+/*
+
+NameOfComponent.propTypes = {
+  SpecifiedPropType: PropType.ActualType.isRequired
+}
+
+*/
 
 const mapStateToProps = (state) => {
   return {

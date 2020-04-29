@@ -20,6 +20,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import BaseLayout from "./components/layout/BaseLayout";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import BlankFooter from "./components/layout/FooterBlank";
 
 // ===Pages===
 import Login from "./components/pages/Login";

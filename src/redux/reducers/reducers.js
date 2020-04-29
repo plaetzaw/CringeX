@@ -1,6 +1,7 @@
 const initialState = {
-  headerUIToggle: true,
-  footerUIToggle: true,
+  headerDisplay: true,
+  footerDisplay: true,
+  loggedIn: false,
 };
 
 const reducer = (state = initialState, action) => {

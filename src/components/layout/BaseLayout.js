@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Header";
+import FooterBlank from "./FooterBlank";
 import Footer from "./Footer";
 
 const BaseLayout = (props) => {
@@ -7,7 +8,7 @@ const BaseLayout = (props) => {
     <div className="container">
       <Header />
       {props.children}
-      <Footer />
+      <FooterBlank />
     </div>
   );
 };

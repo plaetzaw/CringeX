@@ -102,13 +102,13 @@ class Register extends Component {
           </div>
         </form>
 
-        <Button
+        {/* <Button
           component={Link}
           to="/feed"
           style={{ textTransform: "none", fontSize: ".65rem", color: "#fff" }}
         >
           Continue as guest
-        </Button>
+        </Button> */}
       </div>
     );
   }

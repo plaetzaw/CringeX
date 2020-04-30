@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import uiReducers from "./reducers/uiReducers";
 import userReducers from "./reducers/userReducers";
-// import dataReducers from "./reducers/dataReducers";
+import dataReducers from "./reducers/dataReducers";
 
 /*
     Create separate reducers for the following:
@@ -13,6 +13,9 @@ import userReducers from "./reducers/userReducers";
     import the 3 separate reducers here
 */
 
+const middlewareCompose =
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const initialState = {};
 
 const middleware = [thunk];
@@ -21,16 +24,13 @@ const middleware = [thunk];
 const reducers = combineReducers({
   UI: uiReducers,
   Users: userReducers,
-  //   Data: dataReducers,
+  Data: dataReducers,
 });
 
 const store = createStore(
   reducers,
   initialState,
-  compose(
-    applyMiddleware(...middleware),
-    window.__REDUX_DEVTOOLS_COMPOSE__ || compose
-  )
+  middlewareCompose(applyMiddleware(...middleware))
 );
 
 export default store;

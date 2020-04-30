@@ -4,21 +4,34 @@ import {
   TOGGLE_HEADER,
   TOGGLE_FOOTER,
   GET_PROFILE_DATA,
-  GET_PROFILE_DATA,
   POST_PROFILE_DATA,
   POST_UPLOAD,
   POST_COMMENT,
-  LOADING_DATA,
+  GET_FEED,
 } from "./actionTypes";
 
 const URL = `localhost:8080`;
 
 //get database feed
-export const getFeed = (feedItems) => () => {
-  axios.get("/feed", feedItems).then();
+export const getFeed = () => (dispatch) => {
+  dispatch({ type: LOADING_DATA });
+  axios
+    .get("/feed")
+    .then((res) => {
+      console.log(res.data);
+      dispatch({
+        type: GET_FEED,
+        payload: res.data,
+      });
+    })
+
+    .catch((err) => console.error(err));
 };
 
 //get profile feed
+export const getProfileFeed = (feedItems) => {
+  axios.get("/profile", feedItems).then();
+};
 
 //submission post/video to database
 

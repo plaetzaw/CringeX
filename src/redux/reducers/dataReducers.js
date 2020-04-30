@@ -6,15 +6,11 @@ import {
   POST_COMMENT,
 } from "../actions/actionTypes";
 
-const initialState = (state, action) => {
-  if (state === undefined) {
-    state = {
-      feed: [],
-      profiledata: [],
-      comments: [],
-      uploads: [],
-    };
-  }
+const initialState = {
+  feed: [],
+  profiledata: [],
+  comments: [],
+  uploads: [],
 };
 
 const dataReducer = (state = initialState, action) => {
@@ -22,6 +18,7 @@ const dataReducer = (state = initialState, action) => {
     case GET_FEED:
       return {
         ...state,
+        feed: state.feed.concat(action.payload),
       };
     case GET_PROFILE_DATA:
       return {

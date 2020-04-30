@@ -4,7 +4,7 @@ import FeedItem from "../FeedItem";
 
 export class Feed extends Component {
   componentWillMount() {
-    this.props.getFeed();
+    // this.props.getFeed();
   }
   render() {
     return (

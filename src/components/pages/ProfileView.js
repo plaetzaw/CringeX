@@ -150,3 +150,15 @@ export default function Album() {
     </React.Fragment>
   );
 }
+
+// const mapStateToProps = (state) => ({
+//   data: state.data,
+// });
+
+// const mapDispatchToProps = (dispatch) => ({
+//   getProfileFeed: () => {
+//     dispatch(getProfileFeed());
+//   },
+// });
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Album);

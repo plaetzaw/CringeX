@@ -29,8 +29,15 @@ export const getFeed = () => (dispatch) => {
 };
 
 //get profile feed
-export const getProfileFeed = (feedItems) => {
-  axios.get("/profile", feedItems).then();
+export const getProfileFeed = () => (dispatch) => {
+  dispatch({ type: LOADING_DATA });
+  axios.get("/profile").then((res) => {
+    console.log(res.data);
+    dispatch({
+      type: GET_PROFILE_DATA,
+      payload: res.data,
+    });
+  });
 };
 
 //submission post/video to database

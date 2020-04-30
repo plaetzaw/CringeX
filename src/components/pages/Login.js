@@ -118,26 +118,15 @@ class Login extends Component {
 }
 
 // specify PropTypes here
-/*
 
-NameOfComponent.propTypes = {
-  SpecifiedPropType: PropType.ActualType.isRequired
-}
-
-*/
+// Login.propTypes = {
+//   SpecifiedPropType: PropType.ActualType.isRequired,
+// };
 
 const mapStateToProps = (state) => {
   return {
-    loggedIn: state.loggedIn,
-    headerDisplay: state.headerDisplay,
-    footerDisplay: state.footerDisplay,
+    data: state.data,
   };
 };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     default => dispatch({ type: "LOGIN_TOGGLE"})
-//   };
-// };
 
 export default connect(mapStateToProps)(Login);

@@ -39,8 +39,7 @@ ReactDOM.render(
       <div id="container">
         <Header />
         <Switch>
-          <Route exact path="/" component={App} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/feed" component={Feed} />
           <Route exact path="/profile" component={Profile} />

@@ -23,6 +23,7 @@ const dataReducer = (state = initialState, action) => {
     case GET_PROFILE_DATA:
       return {
         ...state,
+        profiledata: state.profiledata.concat(action.payload),
       };
     case POST_PROFILE_DATA:
       return {

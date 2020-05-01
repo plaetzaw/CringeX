@@ -15,6 +15,8 @@ import Reducer from "./redux/reducers/userReducers";
 
 // ===Routing===
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import AuthRoute from "./utility/AuthRoute";
+import SignUpRoute from "./utility/SignUpRoute";
 
 // ===Layout===
 import BaseLayout from "./components/layout/BaseLayout";
@@ -39,8 +41,8 @@ ReactDOM.render(
       <div id="container">
         <Header />
         <Switch>
-          <Route exact path="/" component={Login} />
-          <Route exact path="/register" component={Register} />
+          <AuthRoute exact path="/" component={Login} />
+          <SignUpRoute exact path="/register" component={Register} />
           <Route exact path="/feed" component={Feed} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/upload" component={Upload} />

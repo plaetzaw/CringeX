@@ -41,7 +41,7 @@ export default function ButtonAppBar() {
   return (
     <AppBar className={classes.root}>
       <Toolbar className="nav-buttons">
-        <Button className="tabs" component={Link} to="/login">
+        <Button className="tabs" component={Link} to="/">
           <strong>Login</strong>
         </Button>
         <img

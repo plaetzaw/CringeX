@@ -22,12 +22,14 @@ class ImageUpload extends Component {
   };
 
   handleUpload = () => {
-    // console.log('handle upload button called');
+    console.log("handle upload button called");
+
     const { image } = this.state;
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
     uploadTask.on(
       "state_changed",
       (snapshot) => {
+        console.log("Taking snapshot...");
         // progress function ...
         const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
@@ -40,6 +42,7 @@ class ImageUpload extends Component {
       },
       () => {
         // complete function ...
+        console.log("Saving to storage...");
         storage
           .ref("images")
           .child(image.name)
@@ -51,6 +54,7 @@ class ImageUpload extends Component {
             () => {
               //make api call here to post information back to the server
               //pseudo code
+              console.log("Posting to server...");
               let type = "";
               let media = this.state.url.split(".");
               //last element in the array  media[-1]

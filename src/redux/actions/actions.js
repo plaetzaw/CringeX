@@ -8,6 +8,7 @@ import {
   POST_UPLOAD,
   POST_COMMENT,
   GET_FEED,
+  LOGGED_IN,
 } from "./actionTypes";
 
 const URL = `localhost:8080`;
@@ -40,8 +41,31 @@ export const getProfileFeed = () => (dispatch) => {
   });
 };
 
+export const loginUser = (userData) => (dispatch) => {
+  console.log("Received user info, now searching...");
+  axios.post("/login", userData).then((results) => {
+    setAuthorizationHeader(results.data.accessToken);
+    console.log("Trying to fire dispatch for LOGGED_IN");
+    dispatch({ type: LOGGED_IN });
+  });
+};
+
 //submission post/video to database
 
 //comment post to database
 
 //
+const setAuthorizationHeader = (token) => {
+  const JWToken = `Bearer ${token}`;
+  localStorage.setItem("JWToken", JWToken);
+  axios.defaults.headers.common["Authorization"] = JWToken;
+};
+
+export const createUser = (newUserData) => (dispatch) => {
+  console.log("Creating user on client side");
+  axios.post("/signup", newUserData).then((res) => {
+    if (res.status === 200) {
+      console.log("Success");
+    }
+  });
+};

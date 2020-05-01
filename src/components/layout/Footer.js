@@ -45,26 +45,22 @@ export default function LabelBottomNavigation() {
       <BottomNavigationAction
         component={Link}
         to="/feed"
-        label="Home"
         value="home"
         icon={<HomeIcon style={{ color: "#fff" }} />}
       />
       <BottomNavigationAction
         component={Link}
         to="/upload"
-        label="Upload"
         value="upload"
         icon={<AddCircleIcon style={{ color: "#fff" }} />}
       />
       <BottomNavigationAction
-        label="Nearby"
-        value="nearby"
+        value="notifications"
         icon={<NotificationsIcon style={{ color: "#fff" }} />}
       />
       <BottomNavigationAction
         component={Link}
         to="/profile"
-        label="Profile"
         value="profile"
         icon={<AccountCircleIcon style={{ color: "#fff" }} />}
       />

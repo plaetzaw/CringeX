@@ -1,10 +1,40 @@
 import React, { Component } from "react";
 import "../../utility/loginstyle.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import { requirePropFactory } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
+import PropTypes from "prop-types";
+import { createUser } from "../../redux/actions/actions";
 
 class Register extends Component {
+  constructor() {
+    super();
+    this.state = {
+      username: "",
+      email: "",
+      password: "",
+    };
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Button click detected");
+    const userData = {
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password,
+    };
+
+    this.props.loginUser(userData, this.props.history);
+  };
+
+  handleChange = (event) => {
+    console.log("Change detected");
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
   render() {
     return (
       <div
@@ -124,4 +154,19 @@ class Register extends Component {
   }
 }
 
-export default Register;
+Register.propTypes = {
+  createUser: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => {
+  return {
+    data: state.data,
+  };
+};
+
+const mapDispatchToProps = {
+  createUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

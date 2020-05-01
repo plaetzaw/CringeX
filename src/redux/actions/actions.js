@@ -10,12 +10,10 @@ import {
   GET_FEED,
 } from "./actionTypes";
 
-const URL = `localhost:8080`;
-
 //get database feed
-export const getFeed = () => (dispatch) => {
+export const getFeed = () => async (dispatch) => {
   dispatch({ type: LOADING_DATA });
-  axios
+  await axios
     .get("/feed")
     .then((res) => {
       console.log(res.data);
@@ -31,16 +29,28 @@ export const getFeed = () => (dispatch) => {
 //get profile feed
 export const getProfileFeed = () => (dispatch) => {
   dispatch({ type: LOADING_DATA });
-  axios.get("/profile").then((res) => {
-    console.log(res.data);
-    dispatch({
-      type: GET_PROFILE_DATA,
-      payload: res.data,
-    });
-  });
+  axios
+    .get("/profile")
+    .then((res) => {
+      console.log(res.data);
+      dispatch({
+        type: GET_PROFILE_DATA,
+        payload: res.data,
+      });
+    })
+    .catch((err) => console.log(err));
 };
 
 //submission post/video to database
+export const uploadMedia = (mediaItem) => (dispatch) => {
+  axios
+    .post("/upload")
+    .then((res) => {
+      dispatch({ type: POST_UPLOAD, payload: mediaItem });
+      console.log(res.data);
+    })
+    .catch((err) => console.log(err));
+};
 
 //comment post to database
 

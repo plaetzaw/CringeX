@@ -21,8 +21,7 @@ class Upload extends React.Component {
     this.setState({ file: e.target.files[0] });
   }
   fileUpload(file) {
-    const url =
-      "https://drive.google.com/drive/folders/1OWubpleT0nhYJ4my9LKvhdc2Ayk54oMh";
+    const url = "cringex-46ee6.appspot.com";
     const formData = new FormData();
     formData.append("file", file);
     const config = {

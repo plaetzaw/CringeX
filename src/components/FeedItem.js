@@ -5,19 +5,19 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import InsertCommentIcon from "@material-ui/icons/InsertComment";
-
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownIcon from "@material-ui/icons/ThumbDown";
-import StarsIcon from "@material-ui/icons/Stars";
 
 export class FeedItem extends Component {
   constructor(props) {
     super(props);
   }
   render() {
+    console.log("DISPLAYING FEED INFORMATION");
+    const feed = this.props.data;
+    console.log(feed);
     return (
       <>
         <div style={{ display: "flex", justifyContent: "center" }}>

@@ -21,7 +21,13 @@ class ImageUpload extends Component {
     }
   };
 
-  handleUpload = () => {
+  handleClick = (e) => {
+    e.preventDefault();
+    console.log("NOTICE ME");
+  };
+
+  handleUpload = (event) => {
+    event.preventDefault();
     console.log("handle upload button called");
 
     const { image } = this.state;
@@ -106,20 +112,15 @@ class ImageUpload extends Component {
         <br />
         <br />
         <div className="file-field input-field">
-          <div className="btn">
-            <span>File</span>
-            <input type="file" onChange={this.handleChange} />
-          </div>
-          <div className="file-path-wrapper">
-            <input className="file-path validate" type="text" />
-          </div>
+          <span>File</span>
+          <input type="file" onChange={this.handleChange} />
+
+          <input className="file-path validate" type="text" />
+          <button type="submit" onClick={this.handleClick}>
+            YEET
+          </button>
         </div>
-        <button
-          onClick={this.handleUpload}
-          className="waves-effect waves-light btn"
-        >
-          Upload
-        </button>
+        <button>BLOOD FOR THE BLOOD GOD</button>
         <br />
         <br />
         <h1>Your Selected Image</h1>

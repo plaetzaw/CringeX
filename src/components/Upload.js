@@ -78,12 +78,9 @@ class ImageUpload extends Component {
 
             axios
               .post("/upload", {
-                method: "POST",
-                data: {
-                  videoUrl: this.state.url,
-                  contentType: type,
-                  caption: this.state.caption,
-                },
+                videoUrl: this.state.url,
+                type: type,
+                caption: this.state.caption,
               })
               .then((response) => {
                 console.log(response);

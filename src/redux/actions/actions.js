@@ -42,15 +42,15 @@ export const getProfileFeed = () => (dispatch) => {
 };
 
 //submission post/video to database
-export const uploadMedia = (mediaItem) => (dispatch) => {
-  axios
-    .post("/upload")
-    .then((res) => {
-      dispatch({ type: POST_UPLOAD, payload: mediaItem });
-      console.log(res.data);
-    })
-    .catch((err) => console.log(err));
-};
+// export const uploadMedia = (mediaItem) => (dispatch) => {
+//   axios
+//     .post("/upload")
+//     .then((res) => {
+//       dispatch({ type: POST_UPLOAD, payload: mediaItem });
+//       console.log(res.data);
+//     })
+//     .catch((err) => console.log(err));
+// };
 
 //comment post to database
 

@@ -48,38 +48,37 @@ class ImageUpload extends Component {
             (url) => {
               this.setState({ url: url });
             },
-            console.log("Image sent to Firebase"),
             () => {
               //make api call here to post information back to the server
-              // pseudo code
+              //pseudo code
               let type = "";
-              let media = url.split(".");
-              // last element in the array  media[-1]
-              //
-              // split on (.) i.e myImage.jpg
-              // switch on the media[-1]
-              switch (lastElement) {
+              let media = this.state.url.split(".");
+              //last element in the array  media[-1]
+
+              //split on (.) i.e myImage.jpg
+              //switch on the media[-1]
+              switch (media[-1]) {
                 case "jpg" || "png" || "jpeg" || "gif":
-                  return {
-                    type: "image",
-                  };
+                  type = "image";
+                  break;
                 case "mp4" || "mp5" || "flv" || "mpeg":
-                  return {
-                    type: "video",
-                  };
+                  type = "video";
+                  break;
               }
-              // axios.post('/upload', {
-              //   method: POST,
-              //   data: {
-              //     url: {this.state.url},
-              //     type: {this.state.type},
-              //     caption: {this.state.caption}
-              //   }
-              // })
-              //   .then(response => {
-              //     console.log(response);
-              // console.log("information submitted to database")
-              //   })
+
+              axios
+                .post("/upload", {
+                  method: "POST",
+                  data: {
+                    url: this.state.url,
+                    type: type,
+                    caption: this.state.caption,
+                  },
+                })
+                .then((response) => {
+                  console.log(response);
+                  console.log("information submitted to database");
+                });
             }
           );
       }

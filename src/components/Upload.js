@@ -8,6 +8,8 @@ class ImageUpload extends Component {
     this.state = {
       image: null,
       url: "",
+      caption: "",
+      type: "",
       progress: 0,
     };
   }
@@ -46,27 +48,37 @@ class ImageUpload extends Component {
             (url) => {
               this.setState({ url: url });
             },
+            console.log("Image sent to Firebase"),
             () => {
               //make api call here to post information back to the server
               // pseudo code
-              // let type = ""
-              // let media = url.split('.')
+              let type = "";
+              let media = url.split(".");
               // last element in the array  media[-1]
               //
               // split on (.) i.e myImage.jpg
               // switch on the media[-1]
-              // case "jpg" || "png" || "jpeg" || "gif"
-              //
-              // axios.post('/endpoint', {
+              switch (lastElement) {
+                case "jpg" || "png" || "jpeg" || "gif":
+                  return {
+                    type: "image",
+                  };
+                case "mp4" || "mp5" || "flv" || "mpeg":
+                  return {
+                    type: "video",
+                  };
+              }
+              // axios.post('/upload', {
               //   method: POST,
               //   data: {
-              //     url: url,
-              //     type: "image",
-              //       caption: ""
+              //     url: {this.state.url},
+              //     type: {this.state.type},
+              //     caption: {this.state.caption}
               //   }
               // })
               //   .then(response => {
               //     console.log(response);
+              // console.log("information submitted to database")
               //   })
             }
           );
@@ -107,6 +119,7 @@ class ImageUpload extends Component {
         </button>
         <br />
         <br />
+        <h1>Your Selected Image</h1>
         <img
           src={this.state.url || "https://via.placeholder.com/400x300"}
           alt="Uploaded Images"

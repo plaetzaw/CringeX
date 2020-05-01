@@ -2,6 +2,7 @@ import { LOGGED_IN } from "../actions/actionTypes";
 
 const initialState = {
   loggedIn: false,
+  signUp: false,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -9,6 +10,12 @@ const userReducer = (state = initialState, action) => {
     return {
       ...state,
       loggedIn: true,
+    };
+  }
+  if (action.type === SIGNED_UP) {
+    return {
+      ...state,
+      signUp: true,
     };
   }
   return state;

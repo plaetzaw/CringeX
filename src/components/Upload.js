@@ -113,14 +113,15 @@ class ImageUpload extends Component {
         <br />
         <div className="file-field input-field">
           <span>File</span>
-          <input type="file" onChange={this.handleChange} />
+          <form onSubmit={this.handleUpload}>
+            <input type="file" onChange={this.handleChange} />
 
-          <input className="file-path validate" type="text" />
-          <button type="submit" onClick={this.handleClick}>
-            YEET
-          </button>
+            <input className="file-path validate" type="text" />
+            <button type="submit">YEET</button>
+          </form>
         </div>
         <button>BLOOD FOR THE BLOOD GOD</button>
+
         <br />
         <br />
         <h1>Your Selected Image</h1>

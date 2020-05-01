@@ -53,44 +53,43 @@ class ImageUpload extends Component {
           .ref("images")
           .child(image.name)
           .getDownloadURL()
-          .then(
-            (url) => {
-              this.setState({ url: url });
-            },
-            () => {
-              //make api call here to post information back to the server
-              //pseudo code
-              console.log("Posting to server...");
-              let type = "";
-              let media = this.state.url.split(".");
-              //last element in the array  media[-1]
+          .then((url) => {
+            this.setState({ url: url });
+            //make api call here to post information back to the server
+            //pseudo code
+            console.log("Posting to server...");
+            let type = "";
+            let media = this.state.url.split(".");
+            //last element in the array  media[-1]
 
-              //split on (.) i.e myImage.jpg
-              //switch on the media[-1]
-              switch (media[-1]) {
-                case "jpg" || "png" || "jpeg" || "gif":
-                  type = "image";
-                  break;
-                case "mp4" || "mp5" || "flv" || "mpeg":
-                  type = "video";
-                  break;
-              }
-
-              axios
-                .post("/upload", {
-                  method: "POST",
-                  data: {
-                    url: this.state.url,
-                    type: type,
-                    caption: this.state.caption,
-                  },
-                })
-                .then((response) => {
-                  console.log(response);
-                  console.log("information submitted to database");
-                });
+            //split on (.) i.e myImage.jpg
+            //switch on the media[-1]
+            switch (media[-1]) {
+              case "jpg" || "png" || "jpeg" || "gif":
+                type = "image";
+                break;
+              case "mp4" || "mp5" || "flv" || "mpeg":
+                type = "video";
+                break;
             }
-          );
+            console.log(type);
+            console.log(this.state.url);
+            // console.log(this.state.caption);
+
+            axios
+              .post("/upload", {
+                method: "POST",
+                data: {
+                  videoUrl: this.state.url,
+                  contentType: type,
+                  caption: this.state.caption,
+                },
+              })
+              .then((response) => {
+                console.log(response);
+                console.log("information submitted to database");
+              });
+          });
       }
     );
   };

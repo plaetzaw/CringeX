@@ -7,12 +7,12 @@ const SignUpRoute = ({ component: Component, loggedIn, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      rest.status === 200 ? <Redirect to="/" /> : <Component {...props} />
+      signedUp === true ? <Redirect to="/" /> : <Component {...props} />
     }
   />
 );
 const mapStateToProps = (state) => ({
-  loggedIn: state.Users.loggedIn,
+  signedUp: state.Users.signedUp,
 });
 
 SignUpRoute.propTypes = {

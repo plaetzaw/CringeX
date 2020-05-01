@@ -66,6 +66,7 @@ export const createUser = (newUserData) => (dispatch) => {
   axios.post("/signup", newUserData).then((res) => {
     if (res.status === 200) {
       console.log("Success");
+      dispatch({ type: SIGNED_UP });
     }
   });
 };

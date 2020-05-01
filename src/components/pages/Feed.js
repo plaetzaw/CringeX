@@ -8,11 +8,18 @@ export class Feed extends Component {
     this.props.getFeed();
   }
   render() {
+    // const { feed, loading } = this.props.data;
+
+    // let feedMarkup = !loading ? (
+    //   feed.map((data, index) => <FeedItem key={index} feed={data} />)
+    // ) : (
+    //   <h1>LOADING....</h1>
+    // );
+
     return (
       <>
         <FeedItem />
-        <FeedItem />
-        <FeedItem />
+        {/* {feedMarkup} */}
       </>
     );
   }

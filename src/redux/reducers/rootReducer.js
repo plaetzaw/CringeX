@@ -8,4 +8,5 @@ import Data from "./dataReducers";
 export default combineReducers({
   UI: UI,
   Users: Users,
+  Data: Data,
 });

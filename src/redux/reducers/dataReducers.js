@@ -28,14 +28,17 @@ const dataReducer = (state = initialState, action) => {
     case POST_PROFILE_DATA:
       return {
         ...state,
+        profiledata: action.payload,
       };
     case POST_UPLOAD:
       return {
         ...state,
+        uploads: action.payload,
       };
     case POST_COMMENT:
       return {
         ...state,
+        comments: action.payload,
       };
   }
   return state;

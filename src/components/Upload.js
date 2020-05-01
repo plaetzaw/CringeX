@@ -1,64 +1,121 @@
-import React from "react";
-import axios, { post } from "axios";
+import React, { Component } from "react";
+import storage from "../Firebase/index";
+import axios from "axios";
 
-class Upload extends React.Component {
+class ImageUpload extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      file: null,
+      image: null,
+      url: "",
+      progress: 0,
     };
-    this.onFormSubmit = this.onFormSubmit.bind(this);
-    this.onChange = this.onChange.bind(this);
-    this.fileUpload = this.fileUpload.bind(this);
-  }
-  onFormSubmit(e) {
-    e.preventDefault(); // Stop form submit
-    this.fileUpload(this.state.file).then((response) => {
-      console.log(response.data);
-    });
-  }
-  onChange(e) {
-    this.setState({ file: e.target.files[0] });
-  }
-  fileUpload(file) {
-    const url =
-      "https://drive.google.com/drive/folders/1OWubpleT0nhYJ4my9LKvhdc2Ayk54oMh";
-    const formData = new FormData();
-    formData.append("file", file);
-    const config = {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    };
-    return axios.post(url, formData, config);
   }
 
+  handleChange = (e) => {
+    if (e.target.files[0]) {
+      const image = e.target.files[0];
+      this.setState(() => ({ image }));
+    }
+  };
+
+  handleUpload = () => {
+    // console.log('handle upload button called');
+    const { image } = this.state;
+    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        // progress function ...
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        this.setState({ progress });
+      },
+      (error) => {
+        // Error function ...
+        console.log(error);
+      },
+      () => {
+        // complete function ...
+        storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then(
+            (url) => {
+              this.setState({ url: url });
+            },
+            () => {
+              //make api call here to post information back to the server
+              // pseudo code
+              // let type = ""
+              // let media = url.split('.')
+              // last element in the array  media[-1]
+              //
+              // split on (.) i.e myImage.jpg
+              // switch on the media[-1]
+              // case "jpg" || "png" || "jpeg" || "gif"
+              //
+              // axios.post('/endpoint', {
+              //   method: POST,
+              //   data: {
+              //     url: url,
+              //     type: "image",
+              //       caption: ""
+              //   }
+              // })
+              //   .then(response => {
+              //     console.log(response);
+              //   })
+            }
+          );
+      }
+    );
+  };
   render() {
     return (
-      <>
+      <div className="center">
+        <br />
+        <h2 className="green-text">React Firebase Image Uploader</h2>
         <br />
         <br />
-        <br />
-        <br />
-        <div>
-          <h1>File Upload</h1>
-
-          <form onSubmit={this.onFormSubmit}>
-            <input type="file" onChange={this.onChange} />
-            <button type="submit">Upload</button>
-          </form>
+        <div className="row">
+          <progress
+            value={this.state.progress}
+            max="100"
+            className="progress"
+          />
         </div>
         <br />
         <br />
         <br />
+        <div className="file-field input-field">
+          <div className="btn">
+            <span>File</span>
+            <input type="file" onChange={this.handleChange} />
+          </div>
+          <div className="file-path-wrapper">
+            <input className="file-path validate" type="text" />
+          </div>
+        </div>
+        <button
+          onClick={this.handleUpload}
+          className="waves-effect waves-light btn"
+        >
+          Upload
+        </button>
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-      </>
+        <img
+          src={this.state.url || "https://via.placeholder.com/400x300"}
+          alt="Uploaded Images"
+          height="300"
+          width="400"
+        />
+      </div>
     );
   }
 }
 
-export default Upload;
+export default ImageUpload;

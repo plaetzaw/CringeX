@@ -7,6 +7,7 @@ import {
 } from "../actions/actionTypes";
 
 const initialState = {
+  loadingData: true,
   feed: [],
   profiledata: [],
   comments: [],
@@ -18,6 +19,7 @@ const dataReducer = (state = initialState, action) => {
     case GET_FEED:
       return {
         ...state,
+        loadingData: false,
         feed: state.feed.concat(action.payload),
       };
     case GET_PROFILE_DATA:

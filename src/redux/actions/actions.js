@@ -9,6 +9,7 @@ import {
   POST_COMMENT,
   GET_FEED,
   LOGGED_IN,
+  SIGNED_UP,
 } from "./actionTypes";
 
 //get database feed

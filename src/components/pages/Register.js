@@ -71,7 +71,6 @@ class Register extends Component {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-end",
                 color: "#fff",
               }}
             >
@@ -100,13 +99,25 @@ class Register extends Component {
                   type="password"
                 ></input>
               </div>
-              <div>
-                Verify Password:{" "}
-                <input
-                  className="input"
-                  name="password2"
-                  type="password"
-                ></input>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Button
+                  style={{
+                    fontSize: "1rem",
+                    margin: ".5rem",
+                    color: "#fff",
+                    backgroundColor: "rgba(190, 158, 255, 0.2)",
+                  }}
+                  type="submit"
+                  // onClick={(e)=>{e.preventDefault()}}
+                >
+                  Sign Up
+                </Button>
               </div>
             </div>
 
@@ -124,7 +135,7 @@ class Register extends Component {
               Already have an account?{" "}
               <Button
                 component={Link}
-                to="/login"
+                to="/"
                 style={{
                   color: "#fff",
                   textDecoration: "underline",
@@ -135,7 +146,6 @@ class Register extends Component {
               </Button>
             </div>
           </div>
-
           <div
             style={{
               display: "flex",

@@ -9,6 +9,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
+import SignOutIcon from "@material-ui/icons/MeetingRoom";
 
 import "../../index.css";
 
@@ -40,12 +41,13 @@ export default function LabelBottomNavigation() {
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
+        boxShadow: "0px 0 10px rgba(0, 0, 0, 0.5)",
       }}
     >
       <BottomNavigationAction
         component={Link}
         to="/feed"
-        value="home"
+        value="feed"
         icon={<HomeIcon style={{ color: "#fff" }} />}
       />
       <BottomNavigationAction
@@ -55,14 +57,16 @@ export default function LabelBottomNavigation() {
         icon={<AddCircleIcon style={{ color: "#fff" }} />}
       />
       <BottomNavigationAction
-        value="notifications"
-        icon={<NotificationsIcon style={{ color: "#fff" }} />}
-      />
-      <BottomNavigationAction
         component={Link}
         to="/profile"
         value="profile"
         icon={<AccountCircleIcon style={{ color: "#fff" }} />}
+      />
+      <BottomNavigationAction
+        component={Link}
+        to="/"
+        value="signout"
+        icon={<SignOutIcon style={{ color: "#fff" }} />}
       />
     </BottomNavigation>
   );

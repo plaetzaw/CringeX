@@ -15,9 +15,6 @@ export class FeedItem extends Component {
     super(props);
   }
   render() {
-    console.log("DISPLAYING FEED INFORMATION");
-    const feed = this.props.data;
-    console.log(feed);
     return (
       <>
         <div style={{ display: "flex", justifyContent: "center" }}>
@@ -30,7 +27,8 @@ export class FeedItem extends Component {
             <CardActionArea>
               <CardMedia
                 component="img"
-                src={require("./assets/placehold.jpg")}
+                src={this.props.url}
+                // src={require("./assets/placehold.jpg")}
                 title="CringeX Content"
               />
               <CardContent
@@ -41,10 +39,10 @@ export class FeedItem extends Component {
                 }}
               >
                 <Typography gutterBottom variant="h5" component="h2">
-                  <b>@UserName</b>
+                  <b>@{this.props.handle}</b>
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  CringeX Text, Picture or Video
+                  C{this.props.caption}
                 </Typography>
               </CardContent>
             </CardActionArea>

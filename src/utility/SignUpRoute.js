@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-const SignUpRoute = ({ component: Component, loggedIn, signedUp, ...rest }) => (
+const SignUpRoute = ({ component: Component, signedUp, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>

@@ -69,7 +69,13 @@ class Login extends Component {
             }}
           >
             <form onSubmit={this.handleSubmit}>
-              <div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignItems: "center",
+                }}
+              >
                 Email:{" "}
                 <input
                   onChange={this.handleChange}

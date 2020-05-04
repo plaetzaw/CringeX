@@ -102,7 +102,7 @@ class ImageUpload extends Component {
 
             let apiPayload = {
               videoUrl: this.state.url,
-              postType: "image-test",
+              postType: type,
               caption: this.state.caption,
             };
 

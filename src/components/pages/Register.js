@@ -66,31 +66,58 @@ class Register extends Component {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-end",
                 color: "#fff",
               }}
             >
-              <div>
-                Username: <input className="input" name="handle"></input>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-end",
+                }}
+              >
+                <div>
+                  Username: <input className="input" name="handle"></input>
+                </div>
+                <div>
+                  Email: <input className="input" name="email"></input>
+                </div>
+                <div>
+                  Password:{" "}
+                  <input
+                    className="input"
+                    name="password"
+                    type="password"
+                  ></input>
+                </div>
+                <div>
+                  Verify Password:{" "}
+                  <input
+                    className="input"
+                    name="password2"
+                    type="password"
+                  ></input>
+                </div>
               </div>
-              <div>
-                Email: <input className="input" name="email"></input>
-              </div>
-              <div>
-                Password:{" "}
-                <input
-                  className="input"
-                  name="password"
-                  type="password"
-                ></input>
-              </div>
-              <div>
-                Verify Password:{" "}
-                <input
-                  className="input"
-                  name="password2"
-                  type="password"
-                ></input>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Button
+                  style={{
+                    fontSize: "1rem",
+                    margin: ".5rem",
+                    color: "#fff",
+                    backgroundColor: "rgba(190, 158, 255, 0.2)",
+                  }}
+                  type="submit"
+                  // onClick={(e)=>{e.preventDefault()}}
+                >
+                  Sign Up
+                </Button>
               </div>
             </div>
 
@@ -108,7 +135,7 @@ class Register extends Component {
               Already have an account?{" "}
               <Button
                 component={Link}
-                to="/login"
+                to="/"
                 style={{
                   color: "#fff",
                   textDecoration: "underline",
@@ -118,27 +145,6 @@ class Register extends Component {
                 Click Here!
               </Button>
             </div>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Button
-              style={{
-                fontSize: "1rem",
-                margin: ".5rem",
-                color: "#fff",
-                backgroundColor: "rgba(190, 158, 255, 0.2)",
-              }}
-              type="submit"
-              // onClick={(e)=>{e.preventDefault()}}
-            >
-              Sign Up
-            </Button>
           </div>
         </form>
 

@@ -1,4 +1,4 @@
-import { LOGGED_IN } from "../actions/actionTypes";
+import { LOGGED_IN, SIGNED_UP } from "../actions/actionTypes";
 
 const initialState = {
   loggedIn: false,

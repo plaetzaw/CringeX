@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import storage from "../Firebase/index";
 import axios from "axios";
-import Button from "@material-ui/core/Button";
-import { getFeed } from "../redux/actions/actions";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
 
 class ImageUpload extends Component {
   constructor(props) {
@@ -122,77 +118,42 @@ class ImageUpload extends Component {
     return (
       <div className="center">
         <br />
-        <h2
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          CringeX Uploader
-        </h2>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: "1.5rem",
-          }}
-          className="row"
-        >
+        <h2 className="green-text">React Firebase Image Uploader</h2>
+        <br />
+        <br />
+        <div className="row">
           <progress
             value={this.state.progress}
             max="100"
             className="progress"
           />
         </div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "1.5rem",
-          }}
-          className="file-field input-field"
-        >
+        <br />
+        <br />
+        <br />
+        <div className="file-field input-field">
+          <span>File</span>
           <form onSubmit={this.handleUpload}>
-            <span>File: </span>
-            <input
-              style={{
-                fontFamily: "Baloo Tamma 2 cursive",
-                fontSize: "0.875rem",
-              }}
-              type="file"
-              onChange={this.handleChange}
-            />
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <Button color="primary" variant="contained" type="submit">
-                UPLOAD
-              </Button>
-            </div>
+            <input type="file" onChange={this.handleChange} />
+
+            <input className="file-path validate" type="text" />
+            <button type="submit">YEET</button>
           </form>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "1.5rem",
-          }}
-        >
-          <img
-            src={this.state.url || "https://via.placeholder.com/400x300"}
-            alt="Uploaded Images"
-            style={{ height: "13.75rem", width: "20rem" }}
-          />
-        </div>
+        <button>BLOOD FOR THE BLOOD GOD</button>
+
+        <br />
+        <br />
+        <h1>Your Selected Image</h1>
+        <img
+          src={this.state.url || "https://via.placeholder.com/400x300"}
+          alt="Uploaded Images"
+          height="300"
+          width="400"
+        />
       </div>
     );
   }
 }
 
-ImageUpload.propTypes = {
-  getFeed: PropTypes.func.isRequired,
-};
-
-export default connect(null, { getFeed })(ImageUpload);
+export default ImageUpload;

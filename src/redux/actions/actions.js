@@ -18,9 +18,10 @@ export const getFeed = () => async (dispatch) => {
   await axios
     .get("/feed")
     .then((res) => {
+      let cringeData = res.data.reverse();
       dispatch({
         type: GET_FEED,
-        payload: res.data,
+        payload: cringeData,
       });
       // let databaseInfo = res.data;
 
@@ -100,12 +101,22 @@ const setAuthorizationHeader = (token) => {
   axios.defaults.headers.common["Authorization"] = JWToken;
 };
 
-export const createUser = (newUserData) => (dispatch) => {
+export const createUser = (newUserData) => (dispatch, history) => {
   console.log("Creating user on client side");
-  axios.post("/signup", newUserData).then((res) => {
+  axios.post("/register", newUserData).then((res) => {
     if (res.status === 200) {
       console.log("Success");
       dispatch({ type: SIGNED_UP });
+      let userData = {
+        email: newUserData.email,
+        password: newUserData.password,
+      };
+
+      axios.post("/login", userData).then((results) => {
+        setAuthorizationHeader(results.data.accessToken);
+        console.log("Trying to fire dispatch for LOGGED_IN");
+        dispatch({ type: LOGGED_IN });
+      });
     }
   });
 };

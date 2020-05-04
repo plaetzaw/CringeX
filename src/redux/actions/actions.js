@@ -18,9 +18,10 @@ export const getFeed = () => async (dispatch) => {
   await axios
     .get("/feed")
     .then((res) => {
+      let cringeData = res.data.reverse();
       dispatch({
         type: GET_FEED,
-        payload: res.data,
+        payload: cringeData,
       });
       // let databaseInfo = res.data;
 

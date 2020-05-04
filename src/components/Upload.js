@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import storage from "../Firebase/index";
 import axios from "axios";
 import Button from "@material-ui/core/Button";
+import { getFeed } from "../redux/actions/actions";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 class ImageUpload extends Component {
   constructor(props) {
@@ -188,4 +191,8 @@ class ImageUpload extends Component {
   }
 }
 
-export default ImageUpload;
+ImageUpload.propTypes = {
+  getFeed: PropTypes.func.isRequired,
+};
+
+export default connect(null, { getFeed })(ImageUpload);

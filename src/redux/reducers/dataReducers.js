@@ -20,7 +20,7 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         loadingData: false,
-        feed: state.feed.concat(action.payload),
+        feed: action.payload,
       };
     case GET_PROFILE_DATA:
       return {

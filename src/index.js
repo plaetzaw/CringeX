@@ -29,10 +29,6 @@ import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import Profile from "./components/pages/ProfileView";
 import Upload from "./components/pages/UploadPage";
-import Chat from "./components/pages/Chat/Chat";
-import Join from "./components/pages/Join/Join";
-
-
 
 // ===Material UI===
 
@@ -50,9 +46,6 @@ ReactDOM.render(
           <Route exact path="/feed" component={Feed} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/upload" component={Upload} />
-          <Route exact path="/chat" component={Chat} />
-          <Route exact path="/join" component={Join} />
-
         </Switch>
         <Footer />
       </div>

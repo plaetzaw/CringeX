@@ -67,15 +67,6 @@ export class FeedItem extends Component {
               >
                 <ThumbDownIcon />
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <InsertCommentIcon />
-              </div>
             </CardActions>
           </Card>
         </div>

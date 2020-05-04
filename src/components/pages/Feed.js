@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import FeedItem from "../FeedItem";
 import { getFeed } from "../../redux/actions/actions";
 
@@ -15,25 +16,25 @@ export class Feed extends Component {
   }
 
   render() {
-    return (
-      <>
-        {this.props.dataLoading ? (
-          <div>LOADING...</div>
-        ) : (
-          this.props.data.feed.map((item) => {
-            return (
-              <FeedItem
-                key={item.id}
-                caption={item.caption}
-                handle={item.user.handle}
-                type={item.contentType}
-                url={item.videoUrl}
-              />
-            );
-          })
-        )}
-      </>
-    );
+    // let pageAuth = false;
+
+    // let authMarkup = this.props.dataLoading ? (
+    //   <div>LOADING...</div>
+    // ) : (
+    return this.props.data.feed.map((item) => {
+      return (
+        <FeedItem
+          key={item.id}
+          caption={item.caption}
+          handle={item.user.handle}
+          type={item.contentType}
+          url={item.videoUrl}
+        />
+      );
+    });
+    // );
+
+    // return <>{!pageAuth ? <Redirect to="/" /> : { authMarkup }}</>;
   }
 }
 

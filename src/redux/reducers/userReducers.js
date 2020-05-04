@@ -12,12 +12,12 @@ const userReducer = (state = initialState, action) => {
       loggedIn: true,
     };
   }
-  // if (action.type === SIGNED_UP) {
-  //   return {
-  //     ...state,
-  //     signUp: true,
-  //   };
-  // }
+  if (action.type === SIGNED_UP) {
+    return {
+      ...state,
+      signUp: true,
+    };
+  }
   return state;
 };
 

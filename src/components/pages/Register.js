@@ -11,7 +11,7 @@ class Register extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
+      handle: "",
       email: "",
       password: "",
     };
@@ -21,12 +21,12 @@ class Register extends Component {
     event.preventDefault();
     console.log("Button click detected");
     const userData = {
-      username: this.state.username,
+      handle: this.state.handle,
       email: this.state.email,
       password: this.state.password,
     };
 
-    this.props.loginUser(userData, this.props.history);
+    this.props.createUser(userData, this.props.history);
   };
 
   handleChange = (event) => {
@@ -36,6 +36,11 @@ class Register extends Component {
     });
   };
   render() {
+    const { loggedIn } = this.props;
+
+    console.log("Looking for loggedIn status");
+    console.log(loggedIn);
+
     return (
       <div
         className="test"
@@ -52,7 +57,7 @@ class Register extends Component {
           style={{ marginTop: "-150px" }}
           src={require("../../images/NameLogo.png")}
         />
-        <form action="/register" method="POST">
+        <form onSubmit={this.handleSubmit}>
           <div
             style={{
               border: "#BE9EFF 2px solid",
@@ -71,14 +76,25 @@ class Register extends Component {
               }}
             >
               <div>
-                Username: <input className="input" name="handle"></input>
+                Username:{" "}
+                <input
+                  onChange={this.handleChange}
+                  className="input"
+                  name="handle"
+                ></input>
               </div>
               <div>
-                Email: <input className="input" name="email"></input>
+                Email:{" "}
+                <input
+                  onChange={this.handleChange}
+                  className="input"
+                  name="email"
+                ></input>
               </div>
               <div>
                 Password:{" "}
                 <input
+                  onChange={this.handleChange}
                   className="input"
                   name="password"
                   type="password"
@@ -135,7 +151,6 @@ class Register extends Component {
                 backgroundColor: "rgba(190, 158, 255, 0.2)",
               }}
               type="submit"
-              // onClick={(e)=>{e.preventDefault()}}
             >
               Sign Up
             </Button>
@@ -156,12 +171,14 @@ class Register extends Component {
 
 Register.propTypes = {
   createUser: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
+  signUp: PropTypes.bool.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => {
   return {
-    data: state.data,
+    signUp: state.signUp,
+    loggedIn: state.loggedIn,
   };
 };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -7,8 +7,11 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { connect } from "react-redux";
 import Link from "@material-ui/core/Link";
 import ProfileModal from "../ProfileModal";
+import { getProfileFeed } from "../../redux/actions/actions";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -77,7 +80,11 @@ const useStyles = makeStyles((theme) => ({
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-export default function Album() {
+function Album(props) {
+  useEffect(() => {
+    props.getProfileFeed();
+  });
+
   const classes = useStyles();
 
   return (
@@ -148,14 +155,18 @@ export default function Album() {
   );
 }
 
-// const mapStateToProps = (state) => ({
-//   data: state.data,
-// });
+Album.propTypes = {
+  getProfileFeed: PropTypes.func.isRequired,
+};
 
-// const mapDispatchToProps = (dispatch) => ({
-//   getProfileFeed: () => {
-//     dispatch(getProfileFeed());
-//   },
-// });
+const mapStateToProps = (state) => ({
+  data: state.data,
+});
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Album);
+const mapDispatchToProps = (dispatch) => ({
+  getProfileFeed: () => {
+    dispatch(getProfileFeed());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Album);

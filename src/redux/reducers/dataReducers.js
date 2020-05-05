@@ -26,7 +26,7 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         loadingData: false,
-        profiledata: state.profiledata.concat(action.payload),
+        profiledata: action.payload,
       };
     case POST_PROFILE_DATA:
       return {

@@ -23,13 +23,17 @@ export class Feed extends Component {
     // ) : (
     return this.props.data.feed.map((item) => {
       return (
-        <FeedItem
-          key={item.id}
-          caption={item.caption}
-          handle={item.user.handle}
-          type={item.contentType}
-          url={item.videoUrl}
-        />
+        <>
+          <div style={{ marginTop: "4.5rem", marginBottom: "4rem" }}>
+            <FeedItem
+              key={item.id}
+              caption={item.caption}
+              handle={item.user.handle}
+              type={item.contentType}
+              url={item.videoUrl}
+            />
+          </div>
+        </>
       );
     });
     // );

@@ -152,6 +152,7 @@ class ImageUpload extends Component {
               }}
               type="file"
               onChange={this.handleChange}
+              required
             />
             <div style={{ display: "flex", justifyContent: "center" }}>
               <Button color="primary" variant="contained" type="submit">

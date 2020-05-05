@@ -74,7 +74,13 @@ class Register extends Component {
                 color: "#fff",
               }}
             >
-              <div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignItems: "center",
+                }}
+              >
                 Username:{" "}
                 <input
                   onChange={this.handleChange}
@@ -82,7 +88,13 @@ class Register extends Component {
                   name="handle"
                 ></input>
               </div>
-              <div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignItems: "center",
+                }}
+              >
                 Email:{" "}
                 <input
                   onChange={this.handleChange}
@@ -90,7 +102,13 @@ class Register extends Component {
                   name="email"
                 ></input>
               </div>
-              <div>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  alignItems: "center",
+                }}
+              >
                 Password:{" "}
                 <input
                   onChange={this.handleChange}
@@ -145,25 +163,6 @@ class Register extends Component {
                 Click Here!
               </Button>
             </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Button
-              style={{
-                fontSize: "1rem",
-                margin: ".5rem",
-                color: "#fff",
-                backgroundColor: "rgba(190, 158, 255, 0.2)",
-              }}
-              type="submit"
-            >
-              Sign Up
-            </Button>
           </div>
         </form>
 

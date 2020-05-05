@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
@@ -10,9 +9,9 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import SignOutIcon from "@material-ui/icons/MeetingRoom";
-
+import { useHistory } from "react-router-dom";
 import "../../index.css";
-
+import { TOGGLE_FOOTER } from "../../redux/actions/actionTypes";
 const useStyles = makeStyles({
   root: {
     //   width: "100%",
@@ -20,15 +19,15 @@ const useStyles = makeStyles({
     //   justifyContent: "center",
   },
 });
-
-export default function LabelBottomNavigation() {
+function LabelBottomNavigation(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState("recents");
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const logout = () => {
+    Headers.delete("JWToken");
+  };
   return (
     <BottomNavigation
       value={value}
@@ -67,7 +66,12 @@ export default function LabelBottomNavigation() {
         to="/"
         value="signout"
         icon={<SignOutIcon style={{ color: "#fff" }} />}
+        onClick={() => {
+          localStorage.removeItem("JWToken");
+        }}
       />
     </BottomNavigation>
   );
 }
+
+export default LabelBottomNavigation;

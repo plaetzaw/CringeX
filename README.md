@@ -1,68 +1,220 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1>CringeX Social Media App<h1>
 
-## Available Scripts
+<h2><u>Overview:</u><h2>
+<h4>We built a full-stack social media app. CringeX is a hybridized version of Reddit and Tik-Tok centered around cringeworthy content. We allow users to register with us. Then users are able to upload content that will then be displayed into the feed. We also have a page that displays all of the users submissions.</h4>
 
-In the project directory, you can run:
+<ul>
+<li>Upvoting and Downvoting posts</li>
+<li>Commenting on other users posts</li>
+<li>Add a user to friend's list</li>
+</ul>
 
-### `npm start`
+</br>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<h2><u>The Team:</u></h2>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<h3>Jaye Jensen</h3>
+<b>Primary team role:</b> Frontend; Styling and JSON Web Tokens
+</br>
 
-### `npm test`
+<h3>Alex Plaetzer</h3>
+<b>Primary team role:</b> Frontend; Components and React/Redux Logic
+</br>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h3>Matt Ryan</h3>
 
-### `npm run build`
+<b>Primary team role:</b> Backend; Database and Routes
+</br>
+</br>
+</br>
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h2><u>Technologies used in the project:</u></h3>
+<h3>Languages:</h3>
+<ul>
+    <li>HTML5</li>
+    <li>CSS3</li>
+    <li>JavaScript</li>
+    <li>React</li>
+    <li>Redux</li>
+    <li>Node</li>
+    <li>Express</li>
+    <li>ElephantSQL (Hosting)</li>
+    <li>PostgresSQL</li>
+    <li>API calls</li>
+    <li>MaterialUI</li>
+    <li>JSON Web Tokens</li>
+    <li>Google Firebase</li>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+</ul>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Other:
 
-### `npm run eject`
+</br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<h3><u>Base Objectives:</u></h3>
+<ul>
+    <li>Allow a user to register an account.</li>
+    <li>Allow a user to upload content. </li>
+    <li>Display a feed of all the content uploaded to the site. </li>
+</ul>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+</br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<h2><u>Stretch Goals Future</u></h2>
+<ul>
+<li>Upvoting and Downvoting posts</li>
+<li>Commenting on other users posts</li>
+<li>Add a user to friend's list</li>
+</ul>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+</br>
 
-## Learn More
+<h2><u>Challenges & Solutions:</u><h2>
+<h3>Some of the biggest challenges we faced with this project build included:</h2>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<b>Challenge: Uploading conent and then pulling it out of a database.</b>
+<br>
+<b>Solution: We used an ElephantSQL database to store user and post information and Google Firebase to store the image and it's pathway, we then used an API call to the server to retrive that information and render it on the page.</b>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+</br>
 
-### Code Splitting
+<h2><u>Code Snippets:</u></h2>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<h4>This is our logic for uploading to both firebase and our database at the same time.</h4>
 
-### Analyzing the Bundle Size
+```
+ handleUpload = (event) => {
+    event.preventDefault();
+    console.log("handle upload button called");
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+    const { image } = this.state;
+    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        console.log("Taking snapshot...");
+        // progress function ...
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        this.setState({ progress });
+      },
+      (error) => {
+        // Error function ...
+        console.log(error);
+      },
+      () => {
+        // complete function ...
+        console.log("Saving to storage...");
 
-### Making a Progressive Web App
+        console.log(image);
+        console.log(image.name);
+        storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
+            this.setState({ url: url });
+            //make api call here to post information back to the server
+            console.log("Posting to server...");
+            console.log(this.state.url);
+            let type = "";
+            // let media = this.state.url.split(".");
+            let firebaseURL = this.state.url;
+            let splitURL = firebaseURL.split("?");
+            let splitPeriod = splitURL[0];
+            let media = splitPeriod.split(".");
+            console.log("Testing split URL");
+            console.log(splitPeriod);
+            console.log(media);
+            console.log(media[media.length - 1]);
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+            switch (media[media.length - 1]) {
+              case "jpg" || "png" || "jpeg" || "gif":
+                type = "image";
+                break;
+              case "mp4" || "mp5" || "flv" || "mpeg":
+                type = "video";
+                break;
+              default:
+                console.log("UNSUPPORTED FILE TYPE");
+                break;
+            }
+            console.log(type);
+            console.log(this.state.url);
+            // console.log(this.state.caption);
 
-### Advanced Configuration
+            let apiPayload = {
+              videoUrl: this.state.url,
+              postType: type,
+              caption: this.state.caption,
+            };
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+            axios.post("/upload", apiPayload).then((response) => {
+              console.log(response);
+              console.log("information submitted to database");
+            });
+          });
+      }
+    );
+  };
 
-### Deployment
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+<br/>
 
-### `npm run build` fails to minify
+<h4>This snippet shows our logic for the upload on the backend.</h4>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
+router.post("/upload", auth, (req, res) => {
+  let user = req.user.id;
+  let url = req.body.videoUrl;
+  let postType = req.body.postType;
+  let caption = req.body.caption;
+
+  console.log(user);
+  console.log(url);
+  console.log(typeof user);
+  console.log(typeof url);
+  console.log(req.body.videoUrl);
+
+  console.log("Trying to find content type in this world that we live in");
+  console.log(req.body);
+  console.log(req.body.postType);
+
+  let post = db.videos.build({
+    userId: user,
+    videoUrl: url,
+    contentType: postType,
+    caption: caption,
+  });
+
+  console.log("Building the post with the following");
+  console.log(post);
+
+  post
+    .save()
+    .then(() => {
+      console.log("Saving post to database...");
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+});
+
+module.exports = router;
+
+```
+
+</br>
+
+<h2>Screenshots:</h2>
+<img src="/src/images/CringeXLogin.png" >
+<h4>Login.</h4>
+<br />
+<img src="/src/images/CringeXUpload.png" >
+<h4>Upload.</h4>
+<br />
+<img src="src/images/CringeXFeed.png" >
+<h4>Feed.</h4>

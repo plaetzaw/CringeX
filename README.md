@@ -15,15 +15,21 @@
 
 <h3>Jaye Jensen</h3>
 <b>Primary team role:</b> Frontend; Styling and JSON Web Tokens
+<img src="/src/images/Jaye.jpeg" >
+
 </br>
 
 <h3>Alex Plaetzer</h3>
 <b>Primary team role:</b> Frontend; Components and React/Redux Logic
+<img src="/src/images/AlexPHS.jpg" >
+
 </br>
 
 <h3>Matt Ryan</h3>
 
 <b>Primary team role:</b> Backend; Database and Routes
+<img src="/src/images/Matt.jpg" >
+
 </br>
 </br>
 </br>
@@ -56,6 +62,13 @@ Other:
     <li>Allow a user to register an account.</li>
     <li>Allow a user to upload content. </li>
     <li>Display a feed of all the content uploaded to the site. </li>
+</ul>
+
+</br>
+
+<h3><u>Stretch Goals Achieved:</u></h3>
+<ul>
+    <li>Allow a user to view all of their posts on their profile page</li>
 </ul>
 
 </br>

@@ -12,6 +12,11 @@ import SignOutIcon from "@material-ui/icons/MeetingRoom";
 import { useHistory } from "react-router-dom";
 import "../../index.css";
 import { TOGGLE_FOOTER } from "../../redux/actions/actionTypes";
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { signedOut } from '../../redux/actions/actions'
+
+
 const useStyles = makeStyles({
   root: {
     //   width: "100%",
@@ -24,9 +29,6 @@ function LabelBottomNavigation(props) {
   const [value, setValue] = React.useState("recents");
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  };
-  const logout = () => {
-    Headers.delete("JWToken");
   };
   return (
     <BottomNavigation
@@ -68,10 +70,27 @@ function LabelBottomNavigation(props) {
         icon={<SignOutIcon style={{ color: "#fff" }} />}
         onClick={() => {
           localStorage.removeItem("JWToken");
+          props.signedOut()
+          console.log(props)
         }}
       />
     </BottomNavigation>
   );
 }
 
-export default LabelBottomNavigation;
+LabelBottomNavigation.propTypes = {
+  signedOut: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: state.Users.loggedIn
+  };
+};
+
+const mapDispatchToProps = {
+  signedOut
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LabelBottomNavigation);

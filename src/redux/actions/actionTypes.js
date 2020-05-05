@@ -8,3 +8,4 @@ export const POST_UPLOAD = "POST_UPLOAD";
 export const POST_COMMENT = "POST_COMMENT";
 export const LOADING_DATA = "LOADING_DATA";
 export const SIGNED_UP = "SIGNED_UP";
+export const SIGNED_OUT = "SIGNED_OUT"

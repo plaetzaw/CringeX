@@ -81,13 +81,22 @@ const useStyles = makeStyles((theme) => ({
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function Album(props) {
-  useEffect(() => {
-    props.getProfileFeed();
-  });
+  
 
   const classes = useStyles();
 
-  return (
+  
+
+  console.log("Looking for profile data inside of ProfileView")
+  console.log(props)
+
+  console.log(props.data)
+
+  console.log(props.data.profileLoading)
+
+
+
+  return ( 
     <React.Fragment>
       <CssBaseline />
       <main>
@@ -106,7 +115,7 @@ function Album(props) {
                 color="textSecondary"
                 paragraph
               >
-                @USERNAME
+                @{props.data.profiledata.handle}
               </Typography>
               <Typography
                 variant="p"
@@ -114,10 +123,9 @@ function Album(props) {
                 color="textSecondary"
                 paragraph
               >
-                Biography this is my biography blah blah blah blah
               </Typography>
-              <div className={classes.heroButtons}>
-                <Grid container spacing={2} justify="center">
+              {/* <div className={classes.heroButtons}>
+               <Grid container spacing={2} justify="center">
                   <Grid item>
                     <Button variant="contained" color="primary">
                       Follow
@@ -127,7 +135,7 @@ function Album(props) {
                     <ProfileModal />
                   </Grid>
                 </Grid>
-              </div>
+              </div>  */}
             </Container>
           </Container>
         </div>
@@ -137,12 +145,12 @@ function Album(props) {
 
           {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map((card) => (
+            {props.data.profiledata.videos.map((card) => (
               <Grid item key={card} xs={6} sm={4} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image={card.videoUrl}
                     title="Image title"
                   />
                 </Card>
@@ -151,22 +159,26 @@ function Album(props) {
           </Grid>
         </Container>
       </main>
+        
     </React.Fragment>
-  );
+  )
 }
 
 Album.propTypes = {
-  getProfileFeed: PropTypes.func.isRequired,
+  
+  data: PropTypes.object.isRequired
+  //profileLoading: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  data: state.data,
+  data: state.Data,
+  //profileLoading: state.data.profileLoading
 });
 
-const mapDispatchToProps = (dispatch) => ({
+/*const mapDispatchToProps = (dispatch) => ({
   getProfileFeed: () => {
     dispatch(getProfileFeed());
   },
-});
+});*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(Album);
+export default connect(mapStateToProps)(Album);

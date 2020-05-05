@@ -8,6 +8,7 @@ import {
 
 const initialState = {
   loadingData: true,
+  profileLoading: true,
   feed: [],
   profiledata: [],
   comments: [],
@@ -25,8 +26,8 @@ const dataReducer = (state = initialState, action) => {
     case GET_PROFILE_DATA:
       return {
         ...state,
-        loadingData: false,
-        profiledata: action.payload,
+        profileLoading: false,
+        profiledata: action.payload
       };
     case POST_PROFILE_DATA:
       return {

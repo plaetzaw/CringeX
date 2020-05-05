@@ -35,10 +35,11 @@ export const getFeed = () => async (dispatch) => {
 
 //get profile feed
 export const getProfileFeed = () => (dispatch) => {
-  dispatch({ type: LOADING_DATA });
+  console.log("Now looking for profile info for user...")
   axios
     .get("/profile")
     .then((res) => {
+      console.log(`Success found profile information!`)
       console.log(res.data);
       dispatch({
         type: GET_PROFILE_DATA,

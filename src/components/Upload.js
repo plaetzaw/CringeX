@@ -56,7 +56,6 @@ class ImageUpload extends Component {
 
         console.log(image);
         console.log(image.name);
-        // cannot console log in a function chain like that below
         storage
           .ref("images")
           .child(image.name)
@@ -64,31 +63,19 @@ class ImageUpload extends Component {
           .then((url) => {
             this.setState({ url: url });
             //make api call here to post information back to the server
-            //pseudo code
             console.log("Posting to server...");
             console.log(this.state.url);
             let type = "";
             // let media = this.state.url.split(".");
             let firebaseURL = this.state.url;
             let splitURL = firebaseURL.split("?");
-
-            // https://firebasestorage.googleapis.com/v0/b/cringex-46ee6.appspot.com/o/images%2Fa2.jpg
-            //?
-            //alt=media&token=080a925d-bb17-41ac-b1c5-1c083c90ecc6
-
-            // splitURL = ["https://firebasestorage.googleapis.com/v0/b/cringex-46ee6.appspot.com/o/images%2Fa2.jpg", "alt=media&token=080a925d-bb17-41ac-b1c5-1c083c90ecc6"]
-
             let splitPeriod = splitURL[0];
-
             let media = splitPeriod.split(".");
             console.log("Testing split URL");
             console.log(splitPeriod);
             console.log(media);
             console.log(media[media.length - 1]);
-            //last element in the array  media[-1]
 
-            //split on (.) i.e myImage.jpg
-            //switch on the media[-1]
             switch (media[media.length - 1]) {
               case "jpg" || "png" || "jpeg" || "gif":
                 type = "image";

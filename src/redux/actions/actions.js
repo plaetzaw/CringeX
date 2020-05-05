@@ -28,31 +28,6 @@ export const getFeed = () => async (dispatch) => {
 
       // ALL THIS CODE ARE BELONG TO ME
       console.log("SEARCHING FOR ALL ITEMS");
-      // res.data.forEach((item) => {
-      //   // console.log(item);
-
-      //   let URL = item.videoUrl.split("?");
-      //   console.log("VIDEO URL FROM DATABSE");
-      //   console.log(URL);
-      //   let urlType = URL[0].split(".");
-      //   console.log("CONTENT TYPE");
-      //   console.log(urlType);
-
-      // let type = "";
-
-      // switch (urlType[urlType.length - 1]) {
-      //   case "jpg" || "png" || "jpeg" || "gif":
-      //     type = "image";
-      //     break;
-      //   case "mp4" || "mp5" || "flv" || "mpeg":
-      //     type = "video";
-      //     break;
-      //   default:
-      //     console.log("UNSUPPORTED FILE TYPE");
-      //     break;
-      // }
-      // console.log(`This is the type: ${type}`);
-      // });
       console.log(res.data);
     })
     .catch((err) => console.error(err));

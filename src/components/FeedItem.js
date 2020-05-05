@@ -20,7 +20,7 @@ export class FeedItem extends Component {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Card
             style={{
-              height: "45rem",
+              height: "auto",
               width: "30rem",
             }}
           >
@@ -38,15 +38,18 @@ export class FeedItem extends Component {
                   alignItems: "center",
                 }}
               >
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography variant="h5" component="h2">
                   <b>@{this.props.handle}</b>
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                  C{this.props.caption}
                 </Typography>
               </CardContent>
             </CardActionArea>
-            <CardActions style={{ display: "flex", justifyContent: "center" }}>
+            <CardActions
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                height: "2rem",
+              }}
+            >
               <div
                 style={{
                   display: "flex",

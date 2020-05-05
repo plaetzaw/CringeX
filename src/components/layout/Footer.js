@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -20,54 +20,60 @@ const useStyles = makeStyles({
     //   justifyContent: "center",
   },
 });
+const classes = useStyles();
+const [value, setValue] = React.useState("recents");
 
-export default function LabelBottomNavigation() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState("recents");
+const handleChange = (event, newValue) => {
+  setValue(newValue);
+};
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  return (
-    <BottomNavigation
-      value={value}
-      onChange={handleChange}
-      className={classes.root}
-      style={{
-        position: "fixed",
-        bottom: "0",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        boxShadow: "0px 0 10px rgba(0, 0, 0, 0.5)",
-      }}
-    >
-      <BottomNavigationAction
-        component={Link}
-        to="/feed"
-        value="feed"
-        icon={<HomeIcon style={{ color: "#fff" }} />}
-      />
-      <BottomNavigationAction
-        component={Link}
-        to="/upload"
-        value="upload"
-        icon={<AddCircleIcon style={{ color: "#fff" }} />}
-      />
-      <BottomNavigationAction
-        component={Link}
-        to="/profile"
-        value="profile"
-        icon={<AccountCircleIcon style={{ color: "#fff" }} />}
-      />
-      <BottomNavigationAction
-        component={Link}
-        to="/"
-        value="signout"
-        icon={<SignOutIcon style={{ color: "#fff" }} />}
-      />
-    </BottomNavigation>
-  );
+class Footer extends Component {
+  render() {
+    return (
+      <BottomNavigation
+        value={value}
+        onChange={handleChange}
+        className={classes.root}
+        style={{
+          position: "fixed",
+          bottom: "0",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          boxShadow: "0px 0 10px rgba(0, 0, 0, 0.5)",
+        }}
+      >
+        <BottomNavigationAction
+          component={Link}
+          to="/feed"
+          value="feed"
+          icon={<HomeIcon style={{ color: "#fff" }} />}
+        />
+        <BottomNavigationAction
+          component={Link}
+          to="/upload"
+          value="upload"
+          icon={<AddCircleIcon style={{ color: "#fff" }} />}
+        />
+        <BottomNavigationAction
+          component={Link}
+          to="/profile"
+          value="profile"
+          icon={<AccountCircleIcon style={{ color: "#fff" }} />}
+        />
+        <BottomNavigationAction
+          component={Link}
+          to="/"
+          value="signout"
+          icon={<SignOutIcon style={{ color: "#fff" }} />}
+          onClick={() => {
+            localStorage.removeItem("JWToken");
+          }}
+        />
+      </BottomNavigation>
+    );
+  }
 }
+
+export default Footer;

@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import FeedItem from "../FeedItem";
-import { getFeed } from "../../redux/actions/actions";
+import { getFeed, getProfileFeed } from "../../redux/actions/actions";
 
 export class Feed extends Component {
   componentDidMount() {
     this.props.getFeed();
+    this.props.getProfileFeed();
     console.log("DISPLAYING FEED INFORMATION");
     const feed = this.props.data.feed;
     console.log(feed);
@@ -50,6 +51,9 @@ const mapDispatchToProps = (dispatch) => ({
   getFeed: () => {
     dispatch(getFeed());
   },
+  getProfileFeed: () => {
+    dispatch(getProfileFeed())
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feed);

@@ -1,4 +1,4 @@
-import { LOGGED_IN, SIGNED_UP } from "../actions/actionTypes";
+import { LOGGED_IN, SIGNED_UP, SIGNED_OUT } from "../actions/actionTypes";
 
 const initialState = {
   loggedIn: false,
@@ -17,6 +17,12 @@ const userReducer = (state = initialState, action) => {
       ...state,
       signUp: true,
     };
+  }
+  if (action.type === SIGNED_OUT) {
+    return{
+      ...state,
+      loggedIn: false
+    }
   }
   return state;
 };

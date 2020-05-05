@@ -10,6 +10,7 @@ import {
   GET_FEED,
   LOGGED_IN,
   SIGNED_UP,
+  SIGNED_OUT
 } from "./actionTypes";
 
 //get database feed
@@ -120,3 +121,11 @@ export const createUser = (newUserData) => (dispatch, history) => {
     }
   });
 };
+
+export const signedOut = () => (dispatch) => {
+  // localSTorage remove item
+  // delete axios defaults
+  localStorage.removeItem("JWToken");
+  delete axios.defaults.headers.common["Authorization"]
+  dispatch({type: SIGNED_OUT})
+}

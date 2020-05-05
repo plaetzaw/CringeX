@@ -1,5 +1,7 @@
 <h1>CringeX Social Media App<h1>
 
+Server side repo: https://github.com/plaetzaw/CringeXServer
+
 <h2><u>Overview:</u><h2>
 <h4>We built a full-stack social media app. CringeX is a hybridized version of Reddit and Tik-Tok centered around cringeworthy content. We allow users to register with us. Then users are able to upload content that will then be displayed into the feed. We also have a page that displays all of the users submissions.</h4>
 

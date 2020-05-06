@@ -1,4 +1,6 @@
 <h1>CringeX Social Media App<h1>
+    
+Live Demo: https://www.youtube.com/watch?v=i8NBy8mppDk&feature=youtu.be&ab_channel=PlatoIII    
 
 Server side repo: https://github.com/plaetzaw/CringeXServer
 
@@ -55,7 +57,6 @@ Server side repo: https://github.com/plaetzaw/CringeXServer
 
 </ul>
 
-Other:
 
 </br>
 
